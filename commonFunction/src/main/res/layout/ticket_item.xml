@@ -69,6 +69,7 @@
 
             </LinearLayout>
             <ImageView
+                android:id="@+id/iv_is_gain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/received"

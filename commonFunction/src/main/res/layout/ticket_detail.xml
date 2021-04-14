@@ -21,18 +21,22 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_ticket_type_name"
                 style="@style/ticket_detail_title"
                 android:text="网络培训学时券" />
 
             <TextView
+                android:id="@+id/tv_ticket_state"
                 style="@style/ticket_detail_state"
                 android:text="未使用" />
 
             <TextView
+                android:id="@+id/tv_use_time"
                 style="@style/ticket_detail_state"
                 android:text="限2020.11.11至2021.11.11使用" />
 
             <com.tibi.common.function.lib.view.ShapeTextView
+                android:id="@+id/stv_use"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="35dp"
@@ -59,70 +63,87 @@
                 android:layout_gravity="left"
                 android:layout_marginBottom="6dp"
                 android:text="使用规则" />
-
             <TextView
+                android:id="@+id/tv_discount"
                 style="@style/ticket_detail_des"
                 android:text="优惠规则：满100元减10元" />
 
             <TextView
+                android:id="@+id/tv_product_name"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="适用项目：安途帮、替比安途帮、驾培学堂" />
 
             <TextView
+                android:id="@+id/tv_hold_org_name"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="适用组织：重庆蓝天白云科技有限公司 重庆蓝天
+               白云科技有限公司 " />
 
             <TextView
+                android:id="@+id/tv_identity"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="适用身份：管理员" />
 
             <TextView
+                android:id="@+id/tv_duty"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="适用岗位：岗位1" />
 
             <TextView
+                android:id="@+id/tv_scene"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="使用场景：购券1" />
 
             <TextView
+                android:id="@+id/tv_consume"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="消费条件：此优惠有以下消费条件" />
 
             <TextView
+                android:id="@+id/tv_commodity_type"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="商品类型：学习券001" />
 
             <TextView
+                android:id="@+id/tv_commodity_name"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="商品名称：学习券001" />
 
             <TextView
+                android:id="@+id/tv_buy_time"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="购买日期范围：2020.1.1至2021.1.1" />
 
             <TextView
+                android:id="@+id/tv_buy_count"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="购买数量：10" />
 
             <TextView
+                android:id="@+id/tv_buy_amount"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="购买总金额：100元" />
+
 
             <TextView
+                android:id="@+id/tv_is_superposition_discount"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="是否允许叠加优惠：自主选择叠加" />
 
             <TextView
+                android:id="@+id/tv_superposition_discount_name"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="叠加优惠名称：优惠1、优惠2、优惠3" />
 
             <TextView
+                android:id="@+id/tv_single_discount_threshold"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="单次优惠阈值：10000" />
 
             <TextView
+                android:id="@+id/tv_explain"
                 style="@style/ticket_detail_des"
-                android:text="优惠规则：满100元减10元" />
+                android:text="说明：安途帮" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
