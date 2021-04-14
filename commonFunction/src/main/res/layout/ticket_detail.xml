@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#409EFF"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingBottom="13dp"
+        android:paddingTop="20dp"
+        android:paddingRight="15dp">
+
+        <LinearLayout
+            android:background="@mipmap/ticket_detail_top_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/ticket_detail_title"
+                android:text="网络培训学时券" />
+
+            <TextView
+                style="@style/ticket_detail_state"
+                android:text="未使用" />
+
+            <TextView
+                style="@style/ticket_detail_state"
+                android:text="限2020.11.11至2021.11.11使用" />
+
+            <com.tibi.common.function.lib.view.ShapeTextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="26dp"
+                android:gravity="center"
+                android:text="立即使用"
+                android:textColor="#FFFFFF"
+                app:defaultColor="#CCCCCC"
+                app:roundRadius="4dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@mipmap/ticket_detail_bottom_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="47dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                style="@style/ticket_detail_state"
+                android:layout_gravity="left"
+                android:layout_marginBottom="6dp"
+                android:text="使用规则" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+
+            <TextView
+                style="@style/ticket_detail_des"
+                android:text="优惠规则：满100元减10元" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
