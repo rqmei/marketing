@@ -15,11 +15,12 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Build;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.Gravity;
 
 import com.tibi.common.function.lib.R;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 
 /**
