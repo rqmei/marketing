@@ -1,2 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tibi.common.function.lib" />
+    package="com.tibi.common.function.lib">
+    <application>
+        <activity android:name=".module.discount.history.HistoryDiscountActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".module.ticket.detail.TicketDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.discount.detail.DiscountDetailActivity"
+            android:screenOrientation="portrait" />
+    </application>
+</manifest>
+

@@ -1,0 +1,132 @@
+ext {
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
+            minSdkVersion    : 19,
+            targetSdkVersion : 28,
+            versionCode      : 161,
+            versionName      : "1.0.0"
+
+    ]
+    version = [
+            //android x
+            annotationsVersion    : '1.1.0',
+            recyclerViewV7Version : '1.1.0-beta05',
+            supportv4Version      : '1.0.0-beta01',
+            appcompatv7Version    : '1.2.0',
+            supportv7Version      : '1.1.0',
+            supportcoreuiVersion  : "1.0.0",
+            espressoVersion       : '3.1.0',
+            cardViewVersion       : '1.0.0',
+            vectorDawableVersion  : '1.0.0',
+            constraintVersion     : "1.1.2",
+            multidexVersion       : "2.0.0",
+            designVersion         : '1.2.0-beta01',
+
+            //第三方库
+            rxlifecycleVersion    : '3.0.0',
+            //network
+            rxlifecycle2SdkVersion: "2.3.0",
+            okhttp3               : "3.9.0",
+            //rx
+            //tool
+            dagger2SdkVersion     : "2.11",
+            gson                  : "2.8.0",
+            eventbusVersion       : '3.0.0',
+            zbarVersion           : '1.0.0',
+            permissionVersion     : '2.0.1',
+            matomoVersion:"4.1.2",
+
+            //View
+            butterknife           : "10.1.0",
+            glide                 : "4.9.0",
+            glideTransformations  : "4.0.0",
+            bannerVersion         : '1.4.10',
+            smartRefreshVersion   : '1.1.0-andx-11',
+            baseRecyclerViewAdapterHelperVersion:'2.9.50',
+            jiaozivideoplayerVersion:'7.0.4',
+            androidPickerViewVersion:'4.1.8',
+            flowlayoutVersion:'1.0.3',
+            smartTabVersion:'2.0.0@aar',
+
+            //test
+            timber                : "4.5.1",
+    ]
+    dependencies = [
+            //androidx support
+            "androidx-annotation"      : "androidx.annotation:annotation:${version["annotationsVersion"]}",
+            "androidx-v4"              : "androidx.legacy:legacy-support-v4:1.0.0",
+            "androidx-appcompat-v7"    : "androidx.appcompat:appcompat:${version["appcompatv7Version"]}",
+            "androidx-cardview-v7"     : "androidx.cardview:cardview:${version["supportv7Version"]}",
+            "androidx-recyclerview-v7" : "androidx.recyclerview:recyclerview:${version["recyclerViewV7Version"]}",
+            "androidx-design"          : "com.google.android.material:material:${version["designVersion"]}",
+            "androidx-vector-drawable" : "androidx.vectordrawable:vectordrawable:${version["vectorDawableVersion"]}",
+            "androidx-multidex"        : "androidx.multidex:multidex:${version["multidexVersion"]}",//通过分包解决Dex超出方法数的限制问题
+
+            //第三方库支持的androidx版本
+            // rxlifecycle2-components是Android组件库，里面定义了例如RxAppCompatActivity、RxFragment
+            // 之类的Android组件【通过绑定生命周期的方式，解决RxJava引起的内存泄漏的开源框架。】
+            // 内部引用了基础库和Android库，如果使用此库则无需再重复引用
+            "rxlifecycle3-components"  : "com.trello.rxlifecycle3:rxlifecycle-components:${version['rxlifecycleVersion']}",
+            "eventbus"                 : "org.greenrobot:eventbus:${version['eventbusVersion']}",//主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息.优点是开销小，代码更优雅。以及将发送者和接收者解耦。
+            "zbar"                     : "com.yanzhenjie.zbar:zbar:${version['zbarVersion']}",
+            "permission"               : "com.yanzhenjie.permission:x:${version['permissionVersion']}",
+
+            //view
+            "butterknife"              : "com.jakewharton:butterknife:${version["butterknife"]}",
+            "butterknife-compiler"     : "com.jakewharton:butterknife-compiler:${version["butterknife"]}",
+            "glide"                    : "com.github.bumptech.glide:glide:${version["glide"]}",//图片加载框架
+            "glide-compiler"           : "com.github.bumptech.glide:compiler:${version["glide"]}",
+            "glide-transformations"    : "jp.wasabeef:glide-transformations:${version["glideTransformations"]}",//图片效果
+            "banner"                   : "com.youth.banner:banner:${version['bannerVersion']}",//轮播图
+            "smartRefreshLayout"       : "com.scwang.smartrefresh:SmartRefreshLayout:${version['smartRefreshVersion']}",
+            "smartRefreshHeader"       : "com.scwang.smartrefresh:SmartRefreshHeader:${version['smartRefreshVersion']}",
+            "baseRecyclerViewAdapterHelper":"com.github.CymChad:BaseRecyclerViewAdapterHelper:${version['baseRecyclerViewAdapterHelperVersion']}",
+            "jiaozivideoplayer":"cn.jzvd:jiaozivideoplayer:${version['jiaozivideoplayerVersion']}",
+            "androidPickerView":"com.contrarywind:Android-PickerView:${version['androidPickerViewVersion']}",
+            "flowlayout":"com.zhy:flowlayout-lib:${version['flowlayoutVersion']}",
+            "smartTabLayout":"com.ogaclejapan.smarttablayout:library:${version['smartTabVersion']}",
+
+            //test
+            "timber"                   : "com.jakewharton.timber:timber:${version["timber"]}",
+
+            //network
+            "retrofit2"                : "com.squareup.retrofit2:retrofit:${version["rxlifecycle2SdkVersion"]}",
+            "retrofit2-converter-gson" : "com.squareup.retrofit2:converter-gson:${version["rxlifecycle2SdkVersion"]}",//用于将请求结果转换为实体类型
+            "retrofit2-adapter-rxjava2": "com.squareup.retrofit2:adapter-rxjava2:${version["rxlifecycle2SdkVersion"]}",
+            "okhttp3"                  : "com.squareup.okhttp3:okhttp:${version["okhttp3"]}",
+            "disklrucache"             : "com.jakewharton:disklrucache:2.0.2",//磁盘缓存
+            //rx2
+            "rxandroid2"               : "io.reactivex.rxjava2:rxandroid:2.1.1",
+            "rxjava2"                  : "io.reactivex.rxjava2:rxjava:2.2.9",
+            
+            //oss上传
+            "oss":"com.aliyun.dpa:oss-android-sdk:2.9.2",
+            "okio":"com.squareup.okio:okio:1.9.0",
+            
+            //socket 
+            "socket":"io.socket:socket.io-client:0.8.3",
+            
+            //微信支付
+            "wxpay":"com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+",
+            
+            // matomo埋点统计
+            "matomo":"org.matomo.sdk:tracker:${version['matomoVersion']}"
+/*
+            "okhttp3-loggin-interceptor": "com.squareup.okhttp3:logging-interceptor:${version["okhttp3"]}",//配置缓存策略，必须跟okhttp同一版本号，否则会报错：Failed resolution of: Lokhttp3/internal/Platform
+            "okhttp-urlconnection"      : "com.squareup.okhttp:okhttp-urlconnection:2.0.0",
+            "rxcache2"                  : "com.github.VictorAlbertos.RxCache:runtime:1.8.0-2.x",
+            "rxcache-jolyglot-gson"     : "com.github.VictorAlbertos.Jolyglot:gson:0.0.3",//因为RxCache在内部使用 Jolyglot 对对象进行序列化和反序列化
+            "rxpermissions2"            : "com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar",
+            "rxerrorhandler2"           : "me.jessyan:rxerrorhandler:2.0.2",
+
+            //tool
+            "dagger2-android"           : "com.google.dagger:dagger-android:${version["dagger2SdkVersion"]}",
+            "dagger2-android-support"   : "com.google.dagger:dagger-android-support:${version["dagger2SdkVersion"]}",//注解依赖注入
+            "dagger2-android-processor" : "com.google.dagger:dagger-android-processor:${version["dagger2SdkVersion"]}",//注解处理器
+            "dagger2-compiler"          : "com.google.dagger:dagger-compiler:${version["dagger2SdkVersion"]}",
+            "ormlite-android"           : "com.j256.ormlite:ormlite-android:5.0",
+            "ormlite-core"              : "com.j256.ormlite:ormlite-core:5.0",
+            "commons-lang"              : "org.apache.commons:commons-lang3:3.0",*/
+    ]
+}

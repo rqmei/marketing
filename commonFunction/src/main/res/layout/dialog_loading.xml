@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/width_height_ww"
+    android:layout_gravity="center"
+    android:background="@drawable/white_radius_bg"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/iv_loading"
+        android:padding="16dp"
+        android:scaleType="centerInside"
+        style="@style/width_height_ww" />
+</LinearLayout>

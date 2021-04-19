@@ -1,6 +1,10 @@
 package com.tibi.common.function.lib.api;
 
+import android.content.Context;
 import android.util.Log;
+
+import com.tibi.common.function.lib.api.callback.TBProgressDialog;
+
 import lib.android.timingbar.com.http.callback.ProgressDialogCallBack;
 import lib.android.timingbar.com.http.exception.ApiException;
 
@@ -17,6 +21,11 @@ public abstract class TbCallBack<T> extends ProgressDialogCallBack<T> {
         super(null);
     }
 
+
+    public TbCallBack(Context context) {
+        // 带加载框的请求
+        super(new TBProgressDialog(context), true, true);
+    }
 
     @Override
     public void onStart() {

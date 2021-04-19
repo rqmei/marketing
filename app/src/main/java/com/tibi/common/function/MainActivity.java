@@ -1,13 +1,37 @@
 package com.tibi.common.function;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.tibi.common.function.lib.module.discount.MyDiscountActivity;
+import com.tibi.common.function.lib.module.ticket.CollarTicketActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    @butterknife.BindView(R.id.btn_bug)
+    Button btnBug;
+    @butterknife.BindView(R.id.btn_discount)
+    Button btnDiscount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        butterknife.ButterKnife.bind(this);
+        btnBug.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CollarTicketActivity.class));
+            }
+        });
+        btnDiscount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,MyDiscountActivity.class));
+            }
+        });
     }
 }

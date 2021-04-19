@@ -4,8 +4,29 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.tibi.common.function"
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+        buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+        versionCode 1
+        versionName "1.0"
+        javaCompileOptions {
+            // 显式声明支持注解
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+        multiDexEnabled true
+        //vector 兼容5.0以下系统
+        vectorDrawables.useSupportLibrary = true
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'armeabi-v7a'
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,9 +41,19 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.+'
+    implementation(rootProject.ext.dependencies["butterknife"])
+    //解决Dex超出方法数的限制问题
+    implementation rootProject.ext.dependencies["androidx-multidex"]
+    annotationProcessor  rootProject.ext.dependencies["butterknife-compiler"]
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     testImplementation 'junit:junit:4.12'
+    implementation rootProject.ext.dependencies["androidx-appcompat-v7"]
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation (project(':commonFunction')) {
+        exclude group: "com.android.support"
+//        exclude group: 'com.google.code.gson'
+        exclude group: "com.github.bumptech.glide"
+//        exclude group: "lib.android.tibi.com:http"
+    }
 }

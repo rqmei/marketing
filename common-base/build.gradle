@@ -1,0 +1,75 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+android {
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+        buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test:runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies["androidx-annotation"]
+    implementation rootProject.ext.dependencies["timber"]
+    api rootProject.ext.dependencies["androidx-v4"]
+    api rootProject.ext.dependencies["androidx-appcompat-v7"]
+    api rootProject.ext.dependencies["androidx-design"]
+    //内存泄漏处理
+    //解决Dex超出方法数的限制问题
+    api rootProject.ext.dependencies["androidx-multidex"]
+    //解耦组建
+    api rootProject.ext.dependencies["eventbus"]
+    // RxLifecycle基础库
+    implementation rootProject.ext.dependencies["rxlifecycle3-components"]
+    //View
+    api(rootProject.ext.dependencies["butterknife"])
+    //不添加butterknife绑定控件要报空指针异常
+
+    // matomo埋点统计
+    api rootProject.ext.dependencies['matomo']
+//    api project(':tracker')
+    // 指定编译百度移动统计JAR
+    api 'com.baidu.mobstat:mtj-sdk:latest.integration'
+
+    api rootProject.ext.dependencies['smartRefreshLayout']
+    api rootProject.ext.dependencies['smartRefreshHeader']
+}
+//发布到远程仓库
+/*apply plugin: 'com.novoda.bintray-release'
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+publish {
+    userOrg = 'tibi' //bintray账户下某个组织id
+    repoName = 'maven' //远程仓库名
+    groupId = 'lib.android.tibi.com' //maven仓库下库的包名，一般为模块包名
+    artifactId = 'base' //项目名称
+    publishVersion = '1.0.0' //版本号
+    desc = 'custom test for android' //项目介绍，可以不写
+    website = '' //项目主页，可以不写
+    licences = ['Apache-2.0']
+}*/
+

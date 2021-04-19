@@ -7,6 +7,7 @@
     android:layout_marginTop="10dp"
     android:layout_marginRight="15dp"
     android:background="@mipmap/ticket_item_bg"
+    android:id="@+id/ll_ticket_item"
     android:orientation="horizontal">
 
     <RelativeLayout
@@ -23,6 +24,7 @@
             android:id="@+id/iv_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:src="@mipmap/unuser" />
     </RelativeLayout>
 
@@ -48,14 +50,16 @@
                     style="@style/ticket_title"
                     android:text="3元优惠券00100010阿德啊" />
 
-                <com.tibi.common.function.lib.view.ShapeTextView
+                <lib.android.timingbar.com.view.ShapeTextView
                     android:id="@+id/stv_ticket_discount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="7.5dp"
-                    android:paddingTop="3.5dp"
-                    android:paddingRight="7.5dp"
-                    android:paddingBottom="3.54dp"
+                    android:paddingLeft="@dimen/dp_8"
+                    android:paddingTop="@dimen/dp_4"
+                    android:paddingRight="@dimen/dp_8"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginBottom="@dimen/dp_4"
+                    android:paddingBottom="@dimen/dp_4"
                     android:text="满100减10"
                     android:textColor="#409EFF"
                     android:textSize="12sp"

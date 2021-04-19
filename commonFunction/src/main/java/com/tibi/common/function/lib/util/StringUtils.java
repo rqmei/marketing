@@ -11,11 +11,13 @@ import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -48,18 +50,27 @@ public class StringUtils {
         }
         return true;
     }
+
     /**
      * 日期型字符串转化为日期 格式
      */
-    public static Date parse(String strDate, String pattern) {
-        if (strDate == null){
-            return null;
+    public static String parse(String strDate, String pattern) {
+        Log.i("parse","strDate"+strDate);
+        if (isEmpty(strDate)) {
+            return "";
         }
         try {
+            // 字符串到日期 "yyyy-MM-dd'T'HH:mm:ssZ"
+            SimpleDateFormat  dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date dd = dateFormat.parse(strDate);
+            Log.i("parse","dd"+dd);
+            // 日期到师傅串
             SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-            return sdf.parse(strDate);
+            Log.i("parse","转是付出pattern"+pattern);
+            return sdf.format(dd);
         } catch (ParseException e) {
-            return null;
+            e.printStackTrace();
+            return "";
         }
     }
 

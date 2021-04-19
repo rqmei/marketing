@@ -1,19 +1,19 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife' // lib中使用butterknife的兼容
 apply plugin: 'com.github.dcendents.android-maven'  //添加这两行
 group='com.github.rqmei'  //GitHub昵称
 android {
-    compileSdkVersion 28
-
-
-
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+        buildToolsVersion rootProject.ext.android["buildToolsVersion"]
         versionCode 1
         versionName "1.0"
 
+//        //vector 兼容5.0以下系统
+//        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -22,13 +22,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    annotationProcessor  rootProject.ext.dependencies["butterknife-compiler"]
+    implementation project(':common-base')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -36,4 +42,7 @@ dependencies {
     //没有使用特殊Header，可以不加这行
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
     implementation 'lib.android.tibi.com:http:1.0.1'
+    implementation rootProject.ext.dependencies["glide"]
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.github.rqmei:java-tb-view-android:1.0.0'
 }
