@@ -76,7 +76,7 @@ public class MyDiscountAdapter extends BaseQuickAdapter<Discount, BaseViewHolder
 
         } else if (i == R.id.ll_ticket_item) {
             // 跳详情
-            UIHelper.toDiscountDetail(activity, discount.getDiscountId());
+            UIHelper.toDiscountDetail(activity,type, discount.getDiscountId());
         }
 
     }

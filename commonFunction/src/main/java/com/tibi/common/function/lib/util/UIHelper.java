@@ -34,11 +34,12 @@ public class UIHelper {
      * 我的优惠-跳详情
      *
      * @param activity
-     * @param discountId
+     * @param type 0：我的优惠 1：历史优惠
      */
-    public static void toDiscountDetail(Activity activity,  String discountId) {
+    public static void toDiscountDetail(Activity activity,int type,  String discountId) {
         Intent intent = new Intent(activity, DiscountDetailActivity.class);
         intent.putExtra("discountId", discountId);
+        intent.putExtra("type", type);
         activity.startActivity(intent);
     }
 }

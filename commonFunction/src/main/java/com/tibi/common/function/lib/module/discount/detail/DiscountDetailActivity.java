@@ -52,6 +52,8 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
     @BindView(R2.id.tv_explain)
     TextView tvExplain;
     DialogManager dialogManager = new DialogManager(this, getSupportFragmentManager());
+    // 0：我的优惠 1：历史优惠
+    int type = 0;
 
     @Override
     public int getLayoutResId() {
@@ -66,6 +68,7 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
     @Override
     public void initData(Bundle savedInstanceState) {
         discountId = getIntent().getStringExtra("discountId");
+        type = getIntent().getIntExtra("type", 0);
         getTicketDetail();
     }
 
@@ -139,11 +142,11 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
                 tvBuyAmount.setVisibility(View.VISIBLE);
                 tvBuyAmount.setText("购买总金额：" + totalAmount);
             }
-            if(discount.getState() == 1) {
+            if (discount.getState() == 1 && type == 0) {
                 stvUse.setOnClickListener(this);
-                stvUse.setDefaultColor(ContextCompat.getColor(this,R.color.c1));
+                stvUse.setDefaultColor(ContextCompat.getColor(this, R.color.c1));
             } else {
-                stvUse.setDefaultColor(ContextCompat.getColor(this,R.color.G3));
+                stvUse.setDefaultColor(ContextCompat.getColor(this, R.color.G3));
             }
 
         }
