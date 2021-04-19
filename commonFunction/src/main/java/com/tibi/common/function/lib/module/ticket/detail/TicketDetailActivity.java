@@ -1,6 +1,7 @@
 package com.tibi.common.function.lib.module.ticket.detail;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import com.tibi.common.function.lib.module.ticket.TicketPresenter;
 import com.tibi.common.function.lib.util.StringUtils;
 
 
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import lib.android.timingbar.com.base.activity.BaseActivity;
 import lib.android.timingbar.com.base.util.Sputil;
@@ -24,6 +26,7 @@ import lib.android.timingbar.com.view.ShapeTextView;
  */
 public class TicketDetailActivity extends BaseActivity<TicketPresenter> implements ITicketDetailView {
     String discountId = "";
+    int isGain = 0;
     @BindView(R2.id.iv_navigation_left)
     ImageView ivNavigationLeft;
     @BindView(R2.id.tv_navigation_title)
@@ -68,6 +71,8 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
     @Override
     public void initData(Bundle savedInstanceState) {
         discountId = getIntent().getStringExtra("discountId");
+        isGain = getIntent().getIntExtra("isGain", 0);
+        Log.i("卷详情","isGain--"+isGain);
         getTicketDetail();
     }
 
@@ -94,10 +99,16 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
     @Override
     public void getTicketDetailResult(TicketDetail ticket) {
         if (ticket != null) {
-            if (ticket.getState() == 3) {
-                stvUse.setBackgroundColor(R.color.c1);
+            if (isGain == 0) {
+                stvUse.setDefaultColor(ContextCompat.getColor(TicketDetailActivity.this,R.color.c1));
+                stvUse.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        putTicketApply();
+                    }
+                });
             } else {
-                stvUse.setBackgroundColor(R.color.G4);
+                stvUse.setDefaultColor(ContextCompat.getColor(TicketDetailActivity.this,R.color.G4));
             }
 
             tvTicketTypeName.setText(ticket.getDiscountTypeName());
@@ -153,12 +164,7 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
                 tvBuyAmount.setVisibility(View.VISIBLE);
                 tvBuyAmount.setText("购买总金额：" + totalAmount);
             }
-            stvUse.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    putTicketApply();
-                }
-            });
+
 
         }
 
@@ -169,7 +175,7 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
      */
     public void putTicketApply() {
         TicketApplyParams ticketApplyParams = new TicketApplyParams();
-        User user =  Sputil.getDeviceData(this,SpConstant.USER_DATA);
+        User user = Sputil.getDeviceData(this, SpConstant.USER_DATA);
         if (user != null) {
             ticketApplyParams.setUserId(user.getUserId());
             ticketApplyParams.setProductCode(user.getProductCode());

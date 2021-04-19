@@ -59,7 +59,7 @@ public class TicketAdapter extends BaseQuickAdapter<Ticket, BaseViewHolder> impl
 
         } else if (i == R.id.ll_ticket_item) {
             // 跳详情
-            UIHelper.toCollarTicketDetail(activity, ticket.getDiscountId());
+            UIHelper.toCollarTicketDetail(activity, ticket.getDiscountId(),ticket.getIsGain());
         }
 
     }

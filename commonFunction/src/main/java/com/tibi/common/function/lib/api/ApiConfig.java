@@ -31,7 +31,8 @@ public class ApiConfig {
     /**
      * 优惠详情
      */
-    public static String API_TICKET_DETAIL = "/api/discountManage/one";
+    public static String
+            API_TICKET_DETAIL = "/api/discountManage/one";
     /**
      * 优惠券详情
      */

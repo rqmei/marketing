@@ -13,6 +13,7 @@ import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.tibi.common.function.lib.R;
 import com.tibi.common.function.lib.R2;
+import com.tibi.common.function.lib.module.discount.Discount;
 import com.tibi.common.function.lib.module.discount.IMyDiscountView;
 import com.tibi.common.function.lib.module.discount.MyDiscountAdapter;
 import com.tibi.common.function.lib.module.discount.MyDiscountPresenter;
@@ -52,10 +53,8 @@ public class HistoryDiscountActivity extends BaseActivity<MyDiscountPresenter> i
     LinearLayout llList;
     @BindView(R2.id.tv_discount_history)
     TextView tvDiscountHistory;
-    String userId = "", productCode = "";
     int currentPage = 1;
     MyDiscountAdapter adapter;
-    List<Ticket> tickets = new ArrayList<>();
 
     @Override
     public int getLayoutResId() {
@@ -64,21 +63,21 @@ public class HistoryDiscountActivity extends BaseActivity<MyDiscountPresenter> i
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        tvNavigationTitle.setText("历史优惠");
         tvTips.setVisibility(View.GONE);
         tvDiscountHistory.setVisibility(View.GONE);
     }
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        userId = getIntent().getStringExtra("userId");
-        productCode = getIntent().getStringExtra("productCode");
-        adapter = new MyDiscountAdapter(this, 1, R.layout.ticket_item, tickets, this, getSupportFragmentManager());
+        adapter = new MyDiscountAdapter(this, 1, R.layout.ticket_item, new ArrayList<>(),
+                this, getSupportFragmentManager());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         // 是否启用越界回弹
         refreshLayout.setEnableOverScrollBounce(false);
-        refreshLayout.setEnableLoadMore(false);
+        refreshLayout.setEnableLoadMore(true);
         refreshLayout.setEnableRefresh(true);
         // 启用嵌套滚动
         refreshLayout.setEnableNestedScroll(true);
@@ -104,7 +103,12 @@ public class HistoryDiscountActivity extends BaseActivity<MyDiscountPresenter> i
 
     @Override
     public void registerListener() {
-
+        ivNavigationLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void refresh() {
@@ -119,25 +123,21 @@ public class HistoryDiscountActivity extends BaseActivity<MyDiscountPresenter> i
     }
 
     private void getDiscountList() {
-        userId = "934543";
-        productCode = "prod_antubang";
-        mPresenter.getTicketDiscountList(this, userId, productCode, currentPage, 99, this);
+        mPresenter.getTicketDiscountList(this, currentPage, 99, this);
     }
 
     /**
      * 分页获取数据结果
-     *
-     * @param ticketList
      */
     @Override
-    public void getTicketDiscountList(List<Ticket> ticketList) {
+    public void getTicketDiscountList(List<Discount> discounts) {
         refreshLayout.finishRefresh();
         refreshLayout.finishLoadMore();
         if (currentPage == 1) {
             adapter.getData().clear();
         }
-        if (tickets != null && tickets.size() > 0) {
-            adapter.addData(tickets);
+        if (discounts != null && discounts.size() > 0) {
+            adapter.addData(discounts);
         }
         RefreshNoDataUtil.refreshNoData(adapter.getData(), recyclerView, llNoData);
     }

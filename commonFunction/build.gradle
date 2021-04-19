@@ -42,7 +42,6 @@ dependencies {
     //没有使用特殊Header，可以不加这行
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
     implementation 'lib.android.tibi.com:http:1.0.1'
-    implementation rootProject.ext.dependencies["glide"]
     implementation 'com.nineoldandroids:library:2.4.0'
-    implementation 'com.github.rqmei:java-tb-view-android:1.0.0'
+    implementation 'com.github.rqmei:java-tb-view-android:1.0.1'
 }

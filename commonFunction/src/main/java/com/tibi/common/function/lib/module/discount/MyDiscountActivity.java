@@ -32,7 +32,7 @@ import lib.android.timingbar.com.base.util.Sputil;
 /**
  * 我的优惠
  */
-public class MyDiscountActivity extends BaseActivity<MyDiscountPresenter> implements IMyDiscountView,View.OnClickListener {
+public class MyDiscountActivity extends BaseActivity<MyDiscountPresenter> implements IMyDiscountView, View.OnClickListener {
     @BindView(R2.id.iv_navigation_left)
     ImageView ivNavigationLeft;
     @BindView(R2.id.tv_navigation_title)
@@ -60,7 +60,7 @@ public class MyDiscountActivity extends BaseActivity<MyDiscountPresenter> implem
     String userId = "", productCode = "";
     int currentPage = 1;
     MyDiscountAdapter adapter;
-    List<Ticket> tickets = new ArrayList<>();
+    List<Discount> tickets = new ArrayList<>();
 
     @Override
     public int getLayoutResId() {
@@ -69,22 +69,26 @@ public class MyDiscountActivity extends BaseActivity<MyDiscountPresenter> implem
 
     @Override
     public void initView(Bundle savedInstanceState) {
-
+        tvNavigationTitle.setText("我的优惠");
     }
 
     @Override
     public void initData(Bundle savedInstanceState) {
         userId = getIntent().getStringExtra("userId");
         productCode = getIntent().getStringExtra("productCode");
-        User user = new User(userId,productCode);
-        Sputil.saveDeviceData(this,SpConstant.USER_DATA, user);
-        adapter = new MyDiscountAdapter(this,0, R.layout.ticket_item, tickets, this,getSupportFragmentManager());
+        // todo 假数据
+        userId = "934543";
+        productCode = "prod_antubang";
+        User user = new User(userId, productCode);
+        Sputil.saveDeviceData(this, SpConstant.USER_DATA, user);
+        adapter = new MyDiscountAdapter(this, 0, R.layout.ticket_item, tickets,
+                this, getSupportFragmentManager());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         // 是否启用越界回弹
         refreshLayout.setEnableOverScrollBounce(false);
-        refreshLayout.setEnableLoadMore(false);
+        refreshLayout.setEnableLoadMore(true);
         refreshLayout.setEnableRefresh(true);
         // 启用嵌套滚动
         refreshLayout.setEnableNestedScroll(true);
@@ -127,25 +131,24 @@ public class MyDiscountActivity extends BaseActivity<MyDiscountPresenter> implem
     }
 
     private void getDiscountList() {
-        userId = "934543";
-        productCode = "prod_antubang";
-        mPresenter.getTicketDiscountList(this, userId, productCode, currentPage,1, this);
+
+        mPresenter.getTicketDiscountList(this, currentPage, 1, this);
     }
 
     /**
      * 分页获取数据结果
      *
-     * @param ticketList
+     * @param discountList
      */
     @Override
-    public void getTicketDiscountList(List<Ticket> ticketList) {
+    public void getTicketDiscountList(List<Discount> discountList) {
         refreshLayout.finishRefresh();
         refreshLayout.finishLoadMore();
         if (currentPage == 1) {
             adapter.getData().clear();
         }
-        if (tickets != null && tickets.size() > 0) {
-            adapter.addData(tickets);
+        if (discountList != null && discountList.size() > 0) {
+            adapter.addData(discountList);
         }
         RefreshNoDataUtil.refreshNoData(adapter.getData(), recyclerView, llNoData);
     }
@@ -156,8 +159,8 @@ public class MyDiscountActivity extends BaseActivity<MyDiscountPresenter> implem
         int i = v.getId();
         if (i == R.id.iv_navigation_left) {
             finish();
-        } else if(i == R.id.tv_discount_history){
-            UIHelper.toHistoryDiscountDetail(this,userId,productCode);
+        } else if (i == R.id.tv_discount_history) {
+            UIHelper.toHistoryDiscountDetail(this);
         }
     }
 }

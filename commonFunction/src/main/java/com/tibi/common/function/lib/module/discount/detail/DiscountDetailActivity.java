@@ -7,10 +7,11 @@ import android.widget.TextView;
 
 import com.tibi.common.function.lib.R;
 import com.tibi.common.function.lib.R2;
-import com.tibi.common.function.lib.module.ticket.Ticket;
+import com.tibi.common.function.lib.module.discount.Discount;
 import com.tibi.common.function.lib.util.StringUtils;
 import com.tibi.common.function.lib.view.dialog.DialogManager;
 
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import lib.android.timingbar.com.base.activity.BaseActivity;
 import lib.android.timingbar.com.view.ShapeTextView;
@@ -76,7 +77,6 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
     @Override
     public void registerListener() {
         ivNavigationLeft.setOnClickListener(this);
-        stvUse.setOnClickListener(this);
     }
 
     private void getTicketDetail() {
@@ -84,19 +84,19 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
     }
 
     @Override
-    public void getDiscountDetailResult(Ticket ticket) {
-        if (ticket != null) {
-            tvTicketTypeName.setText(ticket.getDiscountTypeName());
-            tvTicketState.setText(ticket.getStateStr());
-            tvUseTime.setText(ticket.getTicketUseTime());
-            tvDiscount.setText("优惠规则：" + ticket.getDiscountRuleDetailJoin());
-            tvScene.setText("使用场景：" + ticket.getUseConditionTypeName());
-            tvExplain.setText("说明：" + ticket.getDescription());
+    public void getDiscountDetailResult(Discount discount) {
+        if (discount != null) {
+            tvTicketTypeName.setText(discount.getDiscountTypeName());
+            tvTicketState.setText(discount.getStateStr());
+            tvUseTime.setText(discount.getTicketUseTime());
+            tvDiscount.setText("优惠规则：" + discount.getDiscountRuleDetailJoin());
+            tvScene.setText("使用场景：" + discount.getUseConditionTypeName());
+            tvExplain.setText("说明：" + discount.getDescription());
 
-            tvConsume.setText("消费条件：" + ticket.getConditionTypeName());
+            tvConsume.setText("消费条件：" + discount.getConditionTypeName());
 
             // 商品类型
-            String ticketTypeName = ticket.getTicketTypeName();
+            String ticketTypeName = discount.getTicketTypeName();
             if (StringUtils.isEmpty(ticketTypeName)) {
                 tvCommodityType.setVisibility(View.GONE);
             } else {
@@ -105,7 +105,7 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
             }
 
             // 商品名称
-            String ticketName = ticket.getTicketName();
+            String ticketName = discount.getTicketName();
             if (StringUtils.isEmpty(ticketName)) {
                 tvCommodityName.setVisibility(View.GONE);
             } else {
@@ -114,7 +114,7 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
             }
 
             // 购买日期范围
-            String payTime = ticket.getPayTime();
+            String payTime = discount.getPayTime();
             if (StringUtils.isEmpty(payTime)) {
                 tvBuyTime.setVisibility(View.GONE);
             } else {
@@ -123,7 +123,7 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
             }
 
             // 购买数量
-            String ticketCount = ticket.getTicketCount();
+            String ticketCount = discount.getTicketCount();
             if (StringUtils.isEmpty(ticketCount)) {
                 tvBuyCount.setVisibility(View.GONE);
             } else {
@@ -132,12 +132,18 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
             }
 
             // 购买总金额
-            String totalAmount = ticket.getTotalAmount();
+            String totalAmount = discount.getTotalAmount();
             if (StringUtils.isEmpty(totalAmount)) {
                 tvBuyAmount.setVisibility(View.GONE);
             } else {
                 tvBuyAmount.setVisibility(View.VISIBLE);
                 tvBuyAmount.setText("购买总金额：" + totalAmount);
+            }
+            if(discount.getState() == 1) {
+                stvUse.setOnClickListener(this);
+                stvUse.setDefaultColor(ContextCompat.getColor(this,R.color.c1));
+            } else {
+                stvUse.setDefaultColor(ContextCompat.getColor(this,R.color.G3));
             }
 
         }

@@ -38,7 +38,7 @@ public class DialogManager {
         //取消选中
         //构建弹框dialog
         dialogOneBtn = new CustomDialog.Builder(mContext)
-                .view(R.layout.dialog_one_button)
+                .view(R.layout.dialog_discount_unuse)
                 .style(R.style.MiddleDialogStyle)
                 .widthDimenRes(R.dimen.dp_250)
                 .setText(R.id.tv_dialog_content, content)

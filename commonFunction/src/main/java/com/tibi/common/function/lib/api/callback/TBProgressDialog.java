@@ -1,6 +1,7 @@
 package com.tibi.common.function.lib.api.callback;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.tibi.common.function.lib.R;
 
+import lib.android.timingbar.com.base.util.DataHelper;
 import lib.android.timingbar.com.http.subsciber.IProgressDialog;
+import lib.android.timingbar.com.imageloader.ImageLoader;
+import lib.android.timingbar.com.imageloader.glide.GlideImageConfig;
 
 /**
  * TBProgressDialog
@@ -28,10 +32,12 @@ public class TBProgressDialog implements IProgressDialog {
         dialog.setCanceledOnTouchOutside(false);
         View view = dialog.getWindow().getDecorView();
         ImageView imageView=view.findViewById(R.id.iv_loading);
-//        String url = DataHelper.getMipmapImg(mContext,R.mipmap.loading);
-//        Glide.with(mContext).load(R.mipmap.loading).into(imageView);
-
-        return dialog;
+        String url = DataHelper.getMipmapImg(mContext,R.mipmap.loading);
+        url = "https://img2.baidu.com/it/u=3054638224,4132759364&fm=26&fmt=auto&gp=0.jpg";
+/*        new ImageLoader().loadImage(mContext,
+                GlideImageConfig.builder().imageView(imageView).url(url).build());*/
+//        Glide.with(mContext).load(url).into(imageView);
+        return new ProgressDialog(mContext);
     }
     public TBProgressDialog(Context context){
         this.mContext=context;

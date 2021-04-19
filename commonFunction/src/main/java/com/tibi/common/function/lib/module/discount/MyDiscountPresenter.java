@@ -5,8 +5,6 @@ import android.util.Log;
 
 import com.tibi.common.function.lib.api.HttpApi;
 import com.tibi.common.function.lib.api.TbCallBack;
-import com.tibi.common.function.lib.module.ticket.ITicketView;
-import com.tibi.common.function.lib.module.ticket.Ticket;
 
 import java.util.List;
 
@@ -34,13 +32,13 @@ public class MyDiscountPresenter implements IPresenter {
     /**
      * 获取我的优惠列表
      *
-     * @param userId
      * @param iMyDiscountView
      * @return
      */
-    public Disposable getTicketDiscountList(Context mContext, String userId, String productCode, int currentPage, int state, final IMyDiscountView iMyDiscountView) {
-        Disposable disposable = httpApi.getTicketDiscountList(userId, productCode, currentPage, state,
-        new TbCallBack<List<Ticket>>(mContext) {
+    public Disposable getTicketDiscountList(Context mContext, int currentPage, int state, final IMyDiscountView iMyDiscountView) {
+
+        Disposable disposable = httpApi.getTicketDiscountList( mContext, currentPage, state,
+        new TbCallBack<List<Discount>>(mContext) {
             @Override
             public void onFail(int code, ApiException e) {
                 if (iMyDiscountView != null) {
@@ -49,10 +47,10 @@ public class MyDiscountPresenter implements IPresenter {
             }
 
             @Override
-            public void onSuccess(List<Ticket> tickets) {
-                Log.i("getTicketShopList", "tickets--" + tickets.size());
+            public void onSuccess(List<Discount> discounts) {
+                Log.i("getTicketShopList", "tickets--" + discounts.size());
                 if (iMyDiscountView != null) {
-                    iMyDiscountView.getTicketDiscountList(tickets);
+                    iMyDiscountView.getTicketDiscountList(discounts);
                 }
             }
         });

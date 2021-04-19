@@ -1,7 +1,7 @@
 package com.tibi.common.function.lib.module.discount.detail;
 
-import com.tibi.common.function.lib.module.ticket.Ticket;
+import com.tibi.common.function.lib.module.discount.Discount;
 
 public interface IDiscountDetailView {
-    void getDiscountDetailResult(Ticket ticket);
+    void getDiscountDetailResult(Discount discount);
 }

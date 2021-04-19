@@ -22,17 +22,19 @@
         <TextView
             android:id="@+id/tv_dialog_content"
             style="@style/width_height_ww"
+            android:layout_gravity="center_horizontal"
             android:textColor="@color/G2"
             android:layout_marginTop="@dimen/dp_12"
             android:textSize="@dimen/h5" />
     </ScrollView>
 
-    <com.tibi.common.function.lib.view.ShapeTextView
+    <lib.android.timingbar.com.view.ShapeTextView
         android:id="@+id/stv_ok"
         android:layout_width="@dimen/dp_100"
         android:layout_height="@dimen/dp_32"
         android:layout_marginTop="@dimen/dp_20"
         android:layout_marginBottom="@dimen/dp_10"
+        android:textColor="@color/white"
         android:text="确定"
         android:textSize="@dimen/h3"
         app:defaultColor="@color/c1"

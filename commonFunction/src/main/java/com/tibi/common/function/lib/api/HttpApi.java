@@ -1,9 +1,13 @@
 package com.tibi.common.function.lib.api;
 
 import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.tibi.common.function.lib.base.User;
+import com.tibi.common.function.lib.constant.SpConstant;
+import com.tibi.common.function.lib.module.discount.Discount;
 import com.tibi.common.function.lib.module.ticket.Ticket;
 import com.tibi.common.function.lib.module.ticket.TicketApplyParams;
 
@@ -11,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.disposables.Disposable;
+import lib.android.timingbar.com.base.util.Sputil;
 import lib.android.timingbar.com.http.EasyHttp;
 import lib.android.timingbar.com.http.module.HttpParams;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -80,10 +85,13 @@ public class HttpApi {
      * @param state 1:我的优惠 99：历史优惠
      * @return
      */
-    public Disposable getTicketDiscountList(String userId,String productCode, int currentPage,int state, TbCallBack<List<Ticket>> tbCallBack) {
+    public Disposable getTicketDiscountList(Context context, int currentPage, int state, TbCallBack<List<Discount>> tbCallBack) {
         HttpParams params = new HttpParams();
-        params.put("userId", userId);
-        params.put("productCode", productCode);
+        User user = Sputil.getDeviceData(context,SpConstant.USER_DATA);
+        if(user != null) {
+            params.put("userId", user.getUserId());
+            params.put("productCode", user.getProductCode());
+        }
         params.put("state",state+"");
         params.put("pageSize", ApiConfig.PAGE_SIZE + "");
         params.put("currentPage", currentPage + "");
@@ -98,7 +106,7 @@ public class HttpApi {
      *
      * @return
      */
-    public Disposable getTicketDiscountDetail(String discountId, TbCallBack<Ticket> tbCallBack) {
+    public Disposable getTicketDiscountDetail(String discountId, TbCallBack<Discount> tbCallBack) {
         HttpParams params = new HttpParams();
         params.put("discountId",discountId);
         return EasyHttp.get(ApiConfig.API_TICKET_DISCOUNT_DETAIL)

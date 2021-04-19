@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.tibi.common.function.lib.api.HttpApi;
 import com.tibi.common.function.lib.api.TbCallBack;
+import com.tibi.common.function.lib.module.discount.Discount;
 import com.tibi.common.function.lib.module.ticket.Ticket;
 
 import io.reactivex.disposables.Disposable;
@@ -34,7 +35,7 @@ public class DiscountDetailPresenter implements IPresenter {
      * @return
      */
     public Disposable getTicketDiscountDetail(Context mContext, String discountId, final IDiscountDetailView iDiscountDetailView) {
-        Disposable disposable = httpApi.getTicketDiscountDetail(discountId, new TbCallBack<Ticket>(mContext) {
+        Disposable disposable = httpApi.getTicketDiscountDetail(discountId, new TbCallBack<Discount>(mContext) {
             @Override
             public void onFail(int code, ApiException e) {
                 if (iDiscountDetailView != null) {
@@ -43,9 +44,9 @@ public class DiscountDetailPresenter implements IPresenter {
             }
 
             @Override
-            public void onSuccess(Ticket ticket) {
+            public void onSuccess(Discount discount) {
                 if (iDiscountDetailView != null) {
-                    iDiscountDetailView.getDiscountDetailResult(ticket);
+                    iDiscountDetailView.getDiscountDetailResult(discount);
                 }
             }
         });
