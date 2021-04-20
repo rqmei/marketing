@@ -14,10 +14,12 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.tibi.common.function.lib.R;
 import com.tibi.common.function.lib.R2;
 import com.tibi.common.function.lib.base.User;
+import com.tibi.common.function.lib.base.activity.BaseActivity;
 import com.tibi.common.function.lib.constant.SpConstant;
 import com.tibi.common.function.lib.module.ticket.Ticket;
 import com.tibi.common.function.lib.module.ticket.TicketAdapter;
 import com.tibi.common.function.lib.util.RefreshNoDataUtil;
+import com.tibi.common.function.lib.util.Sputil;
 import com.tibi.common.function.lib.util.UIHelper;
 
 import java.util.ArrayList;
@@ -26,8 +28,6 @@ import java.util.List;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
-import lib.android.timingbar.com.base.activity.BaseActivity;
-import lib.android.timingbar.com.base.util.Sputil;
 
 /**
  * 我的优惠

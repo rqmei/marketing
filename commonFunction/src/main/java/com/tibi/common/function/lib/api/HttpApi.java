@@ -10,12 +10,12 @@ import com.tibi.common.function.lib.constant.SpConstant;
 import com.tibi.common.function.lib.module.discount.Discount;
 import com.tibi.common.function.lib.module.ticket.Ticket;
 import com.tibi.common.function.lib.module.ticket.TicketApplyParams;
+import com.tibi.common.function.lib.util.Sputil;
 
 import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.disposables.Disposable;
-import lib.android.timingbar.com.base.util.Sputil;
 import lib.android.timingbar.com.http.EasyHttp;
 import lib.android.timingbar.com.http.module.HttpParams;
 import retrofit2.converter.gson.GsonConverterFactory;

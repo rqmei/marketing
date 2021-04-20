@@ -1,7 +1,6 @@
 package com.tibi.common.function.lib.module.ticket.detail;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,17 +8,17 @@ import android.widget.TextView;
 import com.tibi.common.function.lib.R;
 import com.tibi.common.function.lib.R2;
 import com.tibi.common.function.lib.base.User;
+import com.tibi.common.function.lib.base.activity.BaseActivity;
+import com.tibi.common.function.lib.base.status.StateUtils;
 import com.tibi.common.function.lib.constant.SpConstant;
 import com.tibi.common.function.lib.module.ticket.TicketApplyParams;
 import com.tibi.common.function.lib.module.ticket.TicketPresenter;
+import com.tibi.common.function.lib.util.Sputil;
 import com.tibi.common.function.lib.util.StringUtils;
 
 
 import androidx.core.content.ContextCompat;
 import butterknife.BindView;
-import lib.android.timingbar.com.base.activity.BaseActivity;
-import lib.android.timingbar.com.base.status.StateUtils;
-import lib.android.timingbar.com.base.util.Sputil;
 import lib.android.timingbar.com.view.ShapeTextView;
 
 /**

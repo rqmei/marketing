@@ -13,6 +13,7 @@ import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.tibi.common.function.lib.R;
 import com.tibi.common.function.lib.R2;
+import com.tibi.common.function.lib.base.activity.BaseActivity;
 import com.tibi.common.function.lib.module.discount.Discount;
 import com.tibi.common.function.lib.module.discount.IMyDiscountView;
 import com.tibi.common.function.lib.module.discount.MyDiscountAdapter;
@@ -26,7 +27,6 @@ import java.util.List;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
-import lib.android.timingbar.com.base.activity.BaseActivity;
 
 public class HistoryDiscountActivity extends BaseActivity<MyDiscountPresenter> implements IMyDiscountView {
     @BindView(R2.id.iv_navigation_left)

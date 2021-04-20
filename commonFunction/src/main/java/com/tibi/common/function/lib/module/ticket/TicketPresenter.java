@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.tibi.common.function.lib.api.HttpApi;
 import com.tibi.common.function.lib.api.TbCallBack;
+import com.tibi.common.function.lib.base.mvp.IPresenter;
 import com.tibi.common.function.lib.module.ticket.detail.ITicketDetailView;
 import com.tibi.common.function.lib.module.ticket.detail.TicketDetail;
 import com.tibi.common.function.lib.util.StringUtils;
@@ -14,7 +15,6 @@ import com.tibi.common.function.lib.util.StringUtils;
 import java.util.List;
 
 import io.reactivex.disposables.Disposable;
-import lib.android.timingbar.com.base.mvp.IPresenter;
 import lib.android.timingbar.com.http.exception.ApiException;
 
 public class TicketPresenter implements IPresenter {
