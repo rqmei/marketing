@@ -46,13 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".lib.module.ticket.CollarTicketActivity"
-            android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".lib.module.discount.MyDiscountActivity"
-            android:screenOrientation="portrait" />
 
 
     </application>

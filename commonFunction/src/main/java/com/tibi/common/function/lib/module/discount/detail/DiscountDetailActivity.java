@@ -14,6 +14,7 @@ import com.tibi.common.function.lib.view.dialog.DialogManager;
 import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import lib.android.timingbar.com.base.activity.BaseActivity;
+import lib.android.timingbar.com.base.status.StateUtils;
 import lib.android.timingbar.com.view.ShapeTextView;
 
 /**
@@ -62,6 +63,10 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        // 单独修改状态栏颜色值
+        StateUtils.transparencyBar(this);
+        // 设置状态栏字体颜色，true:代表黑色，false代表白色
+        StateUtils.setLightStatusBar(this, false);
         stvUse.setText("立即使用");
     }
 

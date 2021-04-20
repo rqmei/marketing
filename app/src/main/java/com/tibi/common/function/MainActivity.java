@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import com.tibi.common.function.lib.module.discount.MyDiscountActivity;
 import com.tibi.common.function.lib.module.ticket.CollarTicketActivity;
+import com.tibi.common.function.lib.util.UIHelper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
         btnBug.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,CollarTicketActivity.class));
+                UIHelper.toCollarTicket(MainActivity.this,"934543","prod_antubang");
             }
         });
         btnDiscount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,MyDiscountActivity.class));
+                UIHelper.toMyDiscount(MainActivity.this,"934543","prod_antubang");
             }
         });
     }

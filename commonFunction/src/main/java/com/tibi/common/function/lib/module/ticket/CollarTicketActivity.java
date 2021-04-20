@@ -83,9 +83,6 @@ public class CollarTicketActivity extends BaseActivity<TicketPresenter> implemen
     private void initData() {
         userId = getIntent().getStringExtra("userId");
         productCode = getIntent().getStringExtra("productCode");
-        // todo假数据
-        userId = "934543";
-        productCode = "prod_antubang";
         User user = new User(userId, productCode);
         Sputil.saveDeviceData(this, SpConstant.USER_DATA, user);
         adapter = new TicketAdapter(this, R.layout.ticket_item, tickets, this);
