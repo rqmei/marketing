@@ -49,8 +49,6 @@ public class HistoryDiscountActivity extends BaseActivity<MyDiscountPresenter> i
     ClassicsFooter footer;
     @BindView(R2.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
-    @BindView(R2.id.ll_list)
-    LinearLayout llList;
     @BindView(R2.id.tv_discount_history)
     TextView tvDiscountHistory;
     int currentPage = 1;
