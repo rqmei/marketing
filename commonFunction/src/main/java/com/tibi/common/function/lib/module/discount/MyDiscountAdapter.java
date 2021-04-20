@@ -5,8 +5,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemChildClickListener;
-import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.tibi.common.function.lib.R;
 import com.tibi.common.function.lib.util.UIHelper;
 import com.tibi.common.function.lib.view.dialog.DialogManager;
@@ -15,7 +14,7 @@ import java.util.List;
 
 import androidx.fragment.app.FragmentManager;
 
-public class MyDiscountAdapter extends BaseQuickAdapter<Discount, BaseViewHolder> implements OnItemChildClickListener {
+public class MyDiscountAdapter extends BaseQuickAdapter<Discount, BaseViewHolder> implements BaseQuickAdapter.OnItemChildClickListener {
     IMyDiscountView iMyDiscountView;
     /**
      * 0：我的优惠 1：历史优惠
@@ -30,7 +29,7 @@ public class MyDiscountAdapter extends BaseQuickAdapter<Discount, BaseViewHolder
         this.type = type;
         this.iMyDiscountView = iMyDiscountView;
         dialogManager = new DialogManager(activity, fragmentManager);
-        addChildClickViewIds(R.id.tv_ticket_operation, R.id.ll_ticket_item);
+
         setOnItemChildClickListener(this);
     }
 
@@ -40,13 +39,13 @@ public class MyDiscountAdapter extends BaseQuickAdapter<Discount, BaseViewHolder
         item.setText(R.id.tv_ticket_name, discount.getDiscountName());
         item.setText(R.id.tv_ticket_time, discount.getTicketUseTime());
         item.setText(R.id.tv_ticket_operation, "立即使用");
-        item.setGone(R.id.iv_is_gain, true);
+        item.setGone(R.id.iv_is_gain, false);
         if (type == 0) {
-            item.setGone(R.id.tv_ticket_operation, false);
-            item.setGone(R.id.view_line,false);
-        } else {
             item.setGone(R.id.tv_ticket_operation, true);
             item.setGone(R.id.view_line,true);
+        } else {
+            item.setGone(R.id.tv_ticket_operation, false);
+            item.setGone(R.id.view_line,false);
         }
         //  状态（0：无效，1:未使用，2：已使用，3:过期，4：不可用）
         int state = discount.getState();
@@ -61,6 +60,7 @@ public class MyDiscountAdapter extends BaseQuickAdapter<Discount, BaseViewHolder
         } else if (state == 4) {
             item.setImageResource(R.id.iv_state, R.mipmap.not_available);
         }
+        item.addOnClickListener(R.id.tv_ticket_operation, R.id.ll_ticket_item);
     }
 
     @Override

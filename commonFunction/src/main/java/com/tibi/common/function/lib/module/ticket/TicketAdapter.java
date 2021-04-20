@@ -6,8 +6,8 @@ import android.util.Log;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
-import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.tibi.common.function.lib.R;
 import com.tibi.common.function.lib.util.UIHelper;
 
@@ -19,7 +19,7 @@ import androidx.core.content.ContextCompat;
 /**
  * 购卷中心
  */
-public class TicketAdapter extends BaseQuickAdapter<Ticket, BaseViewHolder> implements OnItemChildClickListener {
+public class TicketAdapter extends BaseQuickAdapter<Ticket, BaseViewHolder> implements BaseQuickAdapter.OnItemChildClickListener {
     ICollarTicketView iTicketView;
     Activity activity;
 
@@ -27,7 +27,6 @@ public class TicketAdapter extends BaseQuickAdapter<Ticket, BaseViewHolder> impl
         super(layoutResId, data);
         this.activity = activity;
         this.iTicketView = iTicketView;
-        addChildClickViewIds(R.id.tv_ticket_operation, R.id.ll_ticket_item);
         setOnItemChildClickListener(this);
     }
 
@@ -37,12 +36,13 @@ public class TicketAdapter extends BaseQuickAdapter<Ticket, BaseViewHolder> impl
         item.setText(R.id.tv_ticket_name, ticket.getDiscountName());
         item.setText(R.id.tv_ticket_time, ticket.getTicketUseTime());
         if (ticket.getIsGain() == 1) {
-            item.setGone(R.id.iv_is_gain, false);
+            item.setGone(R.id.iv_is_gain, true);
             item.setTextColor(R.id.tv_ticket_operation, ContextCompat.getColor(activity, R.color.G1));
         } else {
-            item.setGone(R.id.iv_is_gain, true);
+            item.setGone(R.id.iv_is_gain, false);
             item.setTextColor(R.id.tv_ticket_operation, ContextCompat.getColor(activity, R.color.c1));
         }
+        item.addOnClickListener(R.id.tv_ticket_operation, R.id.ll_ticket_item);
 
     }
 

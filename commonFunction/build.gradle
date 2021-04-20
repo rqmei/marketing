@@ -39,7 +39,7 @@ dependencies {
     implementation rootProject.ext.dependencies['smartRefreshLayout']
     implementation rootProject.ext.dependencies['smartRefreshHeader']
     //没有使用特殊Header，可以不加这行
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    implementation rootProject.ext.dependencies['baseRecyclerViewAdapterHelper']
     implementation 'lib.android.tibi.com:http:1.0.1'
     implementation 'com.github.rqmei:java-tb-view-android:1.0.1'
 }
