@@ -1,4 +1,11 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!--<color name="navigation_title">#333333</color>
     <color name="background">#fafafa</color>-->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black">#000000</color>
+    <color name="dividing_line">#E6E6E6</color>
+    <color name="btn_pressed_bg">#4BA4FF</color>
+    <color name="tt_transparent">#00000000</color>
 </resources>
