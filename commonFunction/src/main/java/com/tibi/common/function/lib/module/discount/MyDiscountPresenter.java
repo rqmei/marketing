@@ -36,9 +36,8 @@ public class MyDiscountPresenter implements IPresenter {
      * @return
      */
     public Disposable getTicketDiscountList(Context mContext, int currentPage, int state, final IMyDiscountView iMyDiscountView) {
-
-        Disposable disposable = httpApi.getTicketDiscountList( mContext, currentPage, state,
-        new TbCallBack<List<Discount>>(mContext) {
+        Disposable disposable = httpApi.getTicketDiscountList(mContext, currentPage, state,
+        new TbCallBack<List<Discount>>(currentPage == 1 ? mContext : null) {
             @Override
             public void onFail(int code, ApiException e) {
                 if (iMyDiscountView != null) {

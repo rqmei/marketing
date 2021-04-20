@@ -3,11 +3,11 @@ apply plugin: 'com.jakewharton.butterknife' // lib中使用butterknife的兼容
 apply plugin: 'com.github.dcendents.android-maven'  //添加这两行
 group='com.github.rqmei'  //GitHub昵称
 android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
     defaultConfig {
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
-        compileSdkVersion rootProject.ext.android["compileSdkVersion"]
-        buildToolsVersion rootProject.ext.android["buildToolsVersion"]
         versionCode 1
         versionName "1.0"
 
@@ -15,7 +15,6 @@ android {
 //        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -29,19 +28,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    compileSdkVersion 28
+    buildToolsVersion '28.0.2'
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    annotationProcessor  rootProject.ext.dependencies["butterknife-compiler"]
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     implementation project(':common-base')
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     //没有使用特殊Header，可以不加这行
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
     implementation 'lib.android.tibi.com:http:1.0.1'
-    implementation 'com.nineoldandroids:library:2.4.0'
     implementation 'com.github.rqmei:java-tb-view-android:1.0.1'
 }

@@ -2,11 +2,11 @@ package com.tibi.common.function;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDex;
 
 import com.tibi.common.function.lib.api.HttpApi;
 
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.multidex.MultiDex;
 
 public class BaseApplication extends Application {
     /**

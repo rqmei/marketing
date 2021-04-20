@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 
-import com.bumptech.glide.Glide;
 import com.tibi.common.function.lib.R;
 
 import lib.android.timingbar.com.base.util.DataHelper;
@@ -24,22 +23,28 @@ import lib.android.timingbar.com.imageloader.glide.GlideImageConfig;
  */
 public class TBProgressDialog implements IProgressDialog {
     Context mContext;
+    ImageLoader imageLoader;
     @Override
     public Dialog getDialog() {
         Log.i("TBProgressDialog","getDialog 创建对话框dialog===");
-        Dialog dialog = new Dialog (mContext, R.style.dialog);
-        dialog.setContentView (R.layout.dialog_loading);
-        dialog.setCanceledOnTouchOutside(false);
-        View view = dialog.getWindow().getDecorView();
-        ImageView imageView=view.findViewById(R.id.iv_loading);
-        String url = DataHelper.getMipmapImg(mContext,R.mipmap.loading);
-        url = "https://img2.baidu.com/it/u=3054638224,4132759364&fm=26&fmt=auto&gp=0.jpg";
-/*        new ImageLoader().loadImage(mContext,
-                GlideImageConfig.builder().imageView(imageView).url(url).build());*/
-//        Glide.with(mContext).load(url).into(imageView);
-        return new ProgressDialog(mContext);
+        if(mContext != null) {
+            Dialog dialog = new Dialog(mContext, R.style.dialog);
+            dialog.setContentView(R.layout.dialog_loading);
+            dialog.setCanceledOnTouchOutside(false);
+            View view = dialog.getWindow().getDecorView();
+            ImageView imageView = view.findViewById(R.id.iv_loading);
+            String url = DataHelper.getMipmapImg(mContext, R.mipmap.loading);
+            if (imageView == null) {
+                imageLoader = new ImageLoader();
+            }
+            imageLoader.loadImage(mContext,
+                    GlideImageConfig.builder().imageView(imageView).url(url).build());
+            return dialog;
+        }
+        return  null;
     }
     public TBProgressDialog(Context context){
         this.mContext=context;
+        imageLoader = new ImageLoader();
     }
 }

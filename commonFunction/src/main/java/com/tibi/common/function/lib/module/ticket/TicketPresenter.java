@@ -70,7 +70,7 @@ public class TicketPresenter implements IPresenter {
      * @return
      */
     public Disposable putTicketApply(Context mContext, TicketApplyParams ticketApplyParams, final ITicketView iTicketView) {
-        Disposable disposable = httpApi.putTicketApply(ticketApplyParams, new TbCallBack<String>() {
+        Disposable disposable = httpApi.putTicketApply(ticketApplyParams, new TbCallBack<String>(mContext) {
             @Override
             public void onFail(int code, ApiException e) {
                 String msg = e.getMessage();

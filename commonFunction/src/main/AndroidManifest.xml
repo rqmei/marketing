@@ -1,7 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tibi.common.function.lib">
     <application>
-
+        <!-- glide配置 -->
+        <meta-data
+            android:name="lib.android.timingbar.com.imageloader.glide.GlideConfiguration"
+            android:value="GlideModule" />
         <activity android:name=".module.discount.history.HistoryDiscountActivity"
             android:screenOrientation="portrait"></activity>
         <activity

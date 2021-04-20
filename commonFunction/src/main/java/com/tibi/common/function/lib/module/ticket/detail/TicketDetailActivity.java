@@ -72,7 +72,6 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
     public void initData(Bundle savedInstanceState) {
         discountId = getIntent().getStringExtra("discountId");
         isGain = getIntent().getIntExtra("isGain", 0);
-        Log.i("卷详情","isGain--"+isGain);
         getTicketDetail();
     }
 

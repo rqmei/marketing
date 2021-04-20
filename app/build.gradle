@@ -51,9 +51,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation (project(':commonFunction')) {
-        exclude group: "com.android.support"
+//        exclude group: "com.android.support"
 //        exclude group: 'com.google.code.gson'
-        exclude group: "com.github.bumptech.glide"
+//        exclude group: "com.github.bumptech.glide"
 //        exclude group: "lib.android.tibi.com:http"
     }
 }

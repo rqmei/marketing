@@ -23,8 +23,8 @@ public abstract class TbCallBack<T> extends ProgressDialogCallBack<T> {
 
 
     public TbCallBack(Context context) {
-        // 带加载框的请求
-        super(new TBProgressDialog(context), true, true);
+            // 带加载框的请求
+            super(new TBProgressDialog(context), true, true);
     }
 
     @Override
