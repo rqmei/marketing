@@ -16,11 +16,9 @@ import com.tibi.common.function.lib.R2;
 import com.tibi.common.function.lib.base.User;
 import com.tibi.common.function.lib.base.activity.BaseActivity;
 import com.tibi.common.function.lib.constant.SpConstant;
-import com.tibi.common.function.lib.module.ticket.Ticket;
-import com.tibi.common.function.lib.module.ticket.TicketAdapter;
 import com.tibi.common.function.lib.util.RefreshNoDataUtil;
 import com.tibi.common.function.lib.util.Sputil;
-import com.tibi.common.function.lib.util.UIHelper;
+import com.tibi.common.function.lib.util.UIModuleHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -157,7 +155,7 @@ public class MyDiscountActivity extends BaseActivity<MyDiscountPresenter> implem
         if (i == R.id.iv_navigation_left) {
             finish();
         } else if (i == R.id.tv_discount_history) {
-            UIHelper.toHistoryDiscountDetail(this);
+            UIModuleHelper.toHistoryDiscountDetail(this);
         }
     }
 }

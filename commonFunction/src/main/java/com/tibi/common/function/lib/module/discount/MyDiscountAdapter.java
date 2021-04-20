@@ -7,7 +7,7 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.tibi.common.function.lib.R;
-import com.tibi.common.function.lib.util.UIHelper;
+import com.tibi.common.function.lib.util.UIModuleHelper;
 import com.tibi.common.function.lib.view.dialog.DialogManager;
 
 import java.util.List;
@@ -76,7 +76,7 @@ public class MyDiscountAdapter extends BaseQuickAdapter<Discount, BaseViewHolder
 
         } else if (i == R.id.ll_ticket_item) {
             // 跳详情
-            UIHelper.toDiscountDetail(activity,type, discount.getDiscountId());
+            UIModuleHelper.toDiscountDetail(activity,type, discount.getDiscountId());
         }
 
     }

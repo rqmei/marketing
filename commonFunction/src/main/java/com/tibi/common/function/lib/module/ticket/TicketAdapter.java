@@ -7,9 +7,8 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.tibi.common.function.lib.R;
-import com.tibi.common.function.lib.util.UIHelper;
+import com.tibi.common.function.lib.util.UIModuleHelper;
 
 import java.util.List;
 
@@ -59,7 +58,7 @@ public class TicketAdapter extends BaseQuickAdapter<Ticket, BaseViewHolder> impl
 
         } else if (i == R.id.ll_ticket_item) {
             // 跳详情
-            UIHelper.toCollarTicketDetail(activity, ticket.getDiscountId(),ticket.getIsGain());
+            UIModuleHelper.toCollarTicketDetail(activity, ticket.getDiscountId(),ticket.getIsGain());
         }
 
     }

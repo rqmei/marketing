@@ -3,7 +3,7 @@ package com.tibi.common.function.lib.api;
 /**
  * 接口定义
  */
-public class ApiConfig {
+public class ModuleApiConfig {
     public static boolean DEBUG = true;
     /**
      * 页容量用于分页传参，项目统一

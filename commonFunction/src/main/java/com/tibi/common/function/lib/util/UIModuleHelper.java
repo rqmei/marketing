@@ -9,7 +9,7 @@ import com.tibi.common.function.lib.module.discount.history.HistoryDiscountActiv
 import com.tibi.common.function.lib.module.ticket.CollarTicketActivity;
 import com.tibi.common.function.lib.module.ticket.detail.TicketDetailActivity;
 
-public class UIHelper {
+public class UIModuleHelper {
     /**
      * 购卷中心
      *

@@ -38,8 +38,8 @@ public class HttpApi {
         HttpParams params = new HttpParams();
         params.put("userId", userId);
         params.put("productCode", productCode);
-        return EasyHttp.get(ApiConfig.API_TICKET_SHOP_LIST)
-                .baseUrl(ApiConfig.MARKETING_HOSTSERVER)
+        return EasyHttp.get(ModuleApiConfig.API_TICKET_SHOP_LIST)
+                .baseUrl(ModuleApiConfig.MARKETING_HOSTSERVER)
                 .params(params)
                 .addConverterFactory(GsonConverterFactory.create())
                 .execute(tbCallBack);
@@ -57,8 +57,8 @@ public class HttpApi {
         params.put("discountId", ticketApplyParams.getDiscountId());
         params.put("holdType", ticketApplyParams.getHoldType() + "");
         Log.i("putTicketApply",new Gson().toJson(params));
-        return EasyHttp.put(ApiConfig.API_TICKET_APPLY)
-                .baseUrl(ApiConfig.MARKETING_HOSTSERVER)
+        return EasyHttp.put(ModuleApiConfig.API_TICKET_APPLY)
+                .baseUrl(ModuleApiConfig.MARKETING_HOSTSERVER)
                 .upObject(params)
                 .addConverterFactory(GsonConverterFactory.create())
                 .execute(tbCallBack);
@@ -72,8 +72,8 @@ public class HttpApi {
     public Disposable getTicketDetail(String discountId, TbCallBack<String> tbCallBack) {
         HttpParams params = new HttpParams();
         params.put("discountId", discountId);
-        return EasyHttp.get(ApiConfig.API_TICKET_DETAIL)
-                .baseUrl(ApiConfig.MARKETING_HOSTSERVER)
+        return EasyHttp.get(ModuleApiConfig.API_TICKET_DETAIL)
+                .baseUrl(ModuleApiConfig.MARKETING_HOSTSERVER)
                 .params(params)
                 .addConverterFactory(GsonConverterFactory.create())
                 .execute(tbCallBack);
@@ -93,10 +93,10 @@ public class HttpApi {
             params.put("productCode", user.getProductCode());
         }
         params.put("state",state+"");
-        params.put("pageSize", ApiConfig.PAGE_SIZE + "");
+        params.put("pageSize", ModuleApiConfig.PAGE_SIZE + "");
         params.put("currentPage", currentPage + "");
-        return EasyHttp.get(ApiConfig.API_TICKET_DISCOUNT_LIST)
-                .baseUrl(ApiConfig.MARKETING_HOSTSERVER)
+        return EasyHttp.get(ModuleApiConfig.API_TICKET_DISCOUNT_LIST)
+                .baseUrl(ModuleApiConfig.MARKETING_HOSTSERVER)
                 .params(params)
                 .addConverterFactory(GsonConverterFactory.create())
                 .execute(tbCallBack);
@@ -109,8 +109,8 @@ public class HttpApi {
     public Disposable getTicketDiscountDetail(String discountId, TbCallBack<Discount> tbCallBack) {
         HttpParams params = new HttpParams();
         params.put("discountId",discountId);
-        return EasyHttp.get(ApiConfig.API_TICKET_DISCOUNT_DETAIL)
-                .baseUrl(ApiConfig.MARKETING_HOSTSERVER)
+        return EasyHttp.get(ModuleApiConfig.API_TICKET_DISCOUNT_DETAIL)
+                .baseUrl(ModuleApiConfig.MARKETING_HOSTSERVER)
                 .params(params)
                 .addConverterFactory(GsonConverterFactory.create())
                 .execute(tbCallBack);
