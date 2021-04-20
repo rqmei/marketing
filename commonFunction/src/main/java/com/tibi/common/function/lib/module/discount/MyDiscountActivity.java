@@ -51,8 +51,6 @@ public class MyDiscountActivity extends BaseActivity<MyDiscountPresenter> implem
     ClassicsFooter footer;
     @BindView(R2.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
-    @BindView(R2.id.ll_list)
-    LinearLayout llList;
     @BindView(R2.id.tv_discount_history)
     TextView tvDiscountHistory;
     String userId = "", productCode = "";

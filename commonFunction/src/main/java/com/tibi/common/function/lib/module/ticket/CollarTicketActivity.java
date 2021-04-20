@@ -33,6 +33,8 @@ import butterknife.ButterKnife;
 public class CollarTicketActivity extends BaseActivity<TicketPresenter> implements ICollarTicketView {
     @BindView(R2.id.iv_navigation_left)
     ImageView ivNavigationLeft;
+    @BindView(R2.id.tv_navigation_title)
+    TextView tvNavigationTitle;
     @BindView(R2.id.recycler_view)
     RecyclerView recyclerView;
     @BindView(R2.id.iv_no_data)
@@ -57,7 +59,7 @@ public class CollarTicketActivity extends BaseActivity<TicketPresenter> implemen
 
     @Override
     public void initView(Bundle savedInstanceState) {
-
+        tvNavigationTitle.setText("领卷中心");
     }
 
     @Override
