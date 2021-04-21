@@ -2,33 +2,33 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.tibi.common.function">
-    <!-- 在SDCard中创建与删除文件权限 -->
+    <!--&lt;!&ndash; 在SDCard中创建与删除文件权限 &ndash;&gt;
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
-    <!-- 允许程序读取或写入系统设置 -->
+    &lt;!&ndash; 允许程序读取或写入系统设置 &ndash;&gt;
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
-    <!--百度-->
-    <!--网络权限，当禁用后，无法进行检索等相关业务-->
+    &lt;!&ndash;百度&ndash;&gt;
+    &lt;!&ndash;网络权限，当禁用后，无法进行检索等相关业务&ndash;&gt;
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--读取设备硬件信息，统计数据-->
+    &lt;!&ndash;读取设备硬件信息，统计数据&ndash;&gt;
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--读取系统信息，包含系统版本等信息，用作统计-->
+    &lt;!&ndash;读取系统信息，包含系统版本等信息，用作统计&ndash;&gt;
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <!--获取设备的网络状态，鉴权所需网络代理-->
+    &lt;!&ndash;获取设备的网络状态，鉴权所需网络代理&ndash;&gt;
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--允许sd卡写权限，需写入地图数据，禁用后无法显示地图-->
+    &lt;!&ndash;允许sd卡写权限，需写入地图数据，禁用后无法显示地图&ndash;&gt;
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--这个权限用于访问GPS定位-->
+    &lt;!&ndash;这个权限用于访问GPS定位&ndash;&gt;
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!--获取统计数据-->
+    &lt;!&ndash;获取统计数据&ndash;&gt;
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--程序在手机屏幕关闭后后台进程仍然运行-->
+    &lt;!&ndash;程序在手机屏幕关闭后后台进程仍然运行&ndash;&gt;
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <!-- 读取外置存储。如果开发者使用了so动态加载功能并且把so文件放在了外置存储区域，则需要申请该权限，否则不需要 -->
+    &lt;!&ndash; 读取外置存储。如果开发者使用了so动态加载功能并且把so文件放在了外置存储区域，则需要申请该权限，否则不需要 &ndash;&gt;
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <application
@@ -49,6 +49,6 @@
 
 
 
-    </application>
+    </application>-->
 
 </manifest>
