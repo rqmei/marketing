@@ -11,6 +11,8 @@ public interface ICollarTicketView extends ITicketView {
     void getTicketShopListResult(List<Ticket> tickets);
     /**
      * 立即领取
+     * @param ticket 卷
+     * @param position 数据对应的下表
      */
-    void putTicketApply(Ticket ticket);
+    void putTicketApply(Ticket ticket,int position);
 }

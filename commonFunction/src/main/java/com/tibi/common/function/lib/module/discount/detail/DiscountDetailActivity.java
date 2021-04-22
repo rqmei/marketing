@@ -94,7 +94,7 @@ public class DiscountDetailActivity extends BaseActivity<DiscountDetailPresenter
     @Override
     public void getDiscountDetailResult(Discount discount) {
         if (discount != null) {
-            tvTicketTypeName.setText(discount.getDiscountTypeName());
+            tvTicketTypeName.setText(discount.getDiscountName());
             tvTicketState.setText(discount.getStateStr());
             tvUseTime.setText(discount.getTicketUseTime());
             tvDiscount.setText("优惠规则：" + discount.getDiscountRuleDetailJoin());

@@ -102,7 +102,7 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
     public void getTicketDetailResult(TicketDetail ticket) {
         if (ticket != null) {
             if (isGain == 0) {
-                stvUse.setDefaultColor(ContextCompat.getColor(TicketDetailActivity.this,R.color.c1));
+                stvUse.setDefaultColor(ContextCompat.getColor(TicketDetailActivity.this, R.color.c1));
                 stvUse.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -110,10 +110,10 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
                     }
                 });
             } else {
-                stvUse.setDefaultColor(ContextCompat.getColor(TicketDetailActivity.this,R.color.G4));
+                stvUse.setDefaultColor(ContextCompat.getColor(TicketDetailActivity.this, R.color.G4));
             }
 
-            tvTicketTypeName.setText(ticket.getDiscountTypeName());
+            tvTicketTypeName.setText(ticket.getTicketName());
             tvTicketState.setText(ticket.getStateStr());
             tvUseTime.setText(ticket.getTicketUseTime());
             tvDiscount.setText("优惠规则：" + ticket.getDiscountRuleDetailJoin());
@@ -184,11 +184,12 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
         }
         ticketApplyParams.setDiscountId(discountId);
         ticketApplyParams.setHoldType(20);
-        mPresenter.putTicketApply(TicketDetailActivity.this, ticketApplyParams, TicketDetailActivity.this);
+        mPresenter.putTicketApply(TicketDetailActivity.this, ticketApplyParams, 0, TicketDetailActivity.this);
     }
 
     @Override
-    public void ticketApplySuccess() {
-        getTicketDetail();
+    public void ticketApplySuccess(int position) {
+        stvUse.setDefaultColor(ContextCompat.getColor(TicketDetailActivity.this, R.color.G4));
+        stvUse.setOnClickListener(null);
     }
 }

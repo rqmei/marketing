@@ -247,6 +247,10 @@ public class Ticket implements Serializable {
         return isGain;
     }
 
+    public void setIsGain(int isGain) {
+        this.isGain = isGain;
+    }
+
     /**
      * 使用时间
      *

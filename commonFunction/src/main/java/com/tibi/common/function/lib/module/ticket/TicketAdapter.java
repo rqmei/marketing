@@ -53,7 +53,7 @@ public class TicketAdapter extends BaseQuickAdapter<Ticket, BaseViewHolder> impl
         if (i == R.id.tv_ticket_operation) {
             // 立即领取
             if (iTicketView != null && ticket.getIsGain() == 0) {
-                iTicketView.putTicketApply(ticket);
+                iTicketView.putTicketApply(ticket,position);
             }
 
         } else if (i == R.id.ll_ticket_item) {

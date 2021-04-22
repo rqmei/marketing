@@ -133,24 +133,22 @@ public class CollarTicketActivity extends BaseActivity<TicketPresenter> implemen
     }
 
     @Override
-    public void putTicketApply(Ticket ticket) {
+    public void putTicketApply(Ticket ticket,int position) {
         TicketApplyParams ticketApplyParams = new TicketApplyParams();
         ticketApplyParams.setUserId(userId);
         ticketApplyParams.setProductCode(productCode);
         ticketApplyParams.setDiscountId(ticket.getDiscountId());
         ticketApplyParams.setHoldType(20);
-        mPresenter.putTicketApply(this, ticketApplyParams, this);
+        mPresenter.putTicketApply(this, ticketApplyParams, position, this);
     }
 
     @Override
-    public void ticketApplySuccess() {
-        refresh();
+    public void ticketApplySuccess(int position) {
+        if(adapter.getItemCount() > position){
+            Ticket ticket = adapter.getItem(position);
+            ticket.setIsGain(1);
+            adapter.setData(position,ticket);
+        }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

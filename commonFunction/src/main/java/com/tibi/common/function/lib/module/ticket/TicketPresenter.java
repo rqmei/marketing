@@ -67,9 +67,10 @@ public class TicketPresenter implements IPresenter {
      * @param mContext
      * @param ticketApplyParams
      * @param iTicketView
+     * @param position 卷在adapter中对应的标
      * @return
      */
-    public Disposable putTicketApply(Context mContext, TicketApplyParams ticketApplyParams, final ITicketView iTicketView) {
+    public Disposable putTicketApply(Context mContext, TicketApplyParams ticketApplyParams,int position, final ITicketView iTicketView) {
         Disposable disposable = httpApi.putTicketApply(ticketApplyParams, new TbCallBack<String>(mContext) {
             @Override
             public void onFail(int code, ApiException e) {
@@ -83,7 +84,7 @@ public class TicketPresenter implements IPresenter {
             @Override
             public void onSuccess(String s) {
                 if (iTicketView != null) {
-                    iTicketView.ticketApplySuccess();
+                    iTicketView.ticketApplySuccess(position);
                 }
 
             }
