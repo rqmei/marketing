@@ -16,6 +16,7 @@ public class TicketDetail implements Serializable {
                 if (jsonObject.optBoolean("success")) {
                     JSONObject data = jsonObject.optJSONObject("data");
                     if (data != null) {
+                        this.discountName=data.optString("discountName");
                         this.discountTypeName = data.optString("discountTypeName");
                         this.ticketStartTime = data.optString("ticketStartTime");
                         this.ticketEndTime = data.optString("ticketEndTime");
@@ -43,7 +44,7 @@ public class TicketDetail implements Serializable {
         }
     }
 
-    private String discountId;
+    private String discountName;
     private String discountTypeName;
     private String ticketStartTime; // 优惠券有效开始时间
     private String ticketEndTime; // 优惠券有效结束时间
@@ -53,8 +54,8 @@ public class TicketDetail implements Serializable {
     private DiscountUseConditionRule discountUseConditionRule;
     private String discountRuleDetailJoin; // 优惠详情优惠拼装
 
-    public String getDiscountId() {
-        return discountId;
+    public String getDiscountName() {
+        return discountName;
     }
 
     public String getDiscountTypeName() {

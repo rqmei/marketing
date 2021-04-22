@@ -12,8 +12,7 @@ public class ModuleApiConfig {
     /**
      * 营销系统基础路径
      */
-//    public static String MARKETING_HOSTSERVER = DEBUG ? "http://marketing-api.t1.tb.com/" : "https://app.tbatb.net/sso/";
-    public static String MARKETING_HOSTSERVER = "http://192.168.18.147:8210/";
+    public static String MARKETING_HOSTSERVER = "http://192.168.18.147:8210/api";
     /**
      * 购券中心列表
      */
@@ -31,8 +30,7 @@ public class ModuleApiConfig {
     /**
      * 优惠详情
      */
-    public static String
-            API_TICKET_DETAIL = "/discountManage/one";
+    public static String API_TICKET_DETAIL = "/discountManage/one";
     /**
      * 优惠券详情
      */

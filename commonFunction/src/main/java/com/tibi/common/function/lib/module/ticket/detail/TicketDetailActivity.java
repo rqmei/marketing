@@ -113,7 +113,7 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
                 stvUse.setDefaultColor(ContextCompat.getColor(TicketDetailActivity.this, R.color.G4));
             }
 
-            tvTicketTypeName.setText(ticket.getTicketName());
+            tvTicketTypeName.setText(ticket.getDiscountName());
             tvTicketState.setText(ticket.getStateStr());
             tvUseTime.setText(ticket.getTicketUseTime());
             tvDiscount.setText("优惠规则：" + ticket.getDiscountRuleDetailJoin());
