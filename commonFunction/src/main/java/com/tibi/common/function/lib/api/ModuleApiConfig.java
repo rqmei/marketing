@@ -17,24 +17,24 @@ public class ModuleApiConfig {
     /**
      * 购券中心列表
      */
-    public static String API_TICKET_SHOP_LIST = "/api/purchasing/discount/list";
+    public static String API_TICKET_SHOP_LIST = "/purchasing/discount/list";
 
     /**
      * 我的优惠列表
      */
-    public static String API_TICKET_DISCOUNT_LIST = "/api/discountTicket/page/list";
+    public static String API_TICKET_DISCOUNT_LIST = "/discountTicket/page/list";
 
     /**
      * 立即领取
      */
-    public static String API_TICKET_APPLY = "/api/purchasing/get/discount";
+    public static String API_TICKET_APPLY = "/purchasing/get/discount";
     /**
      * 优惠详情
      */
     public static String
-            API_TICKET_DETAIL = "/api/discountManage/one";
+            API_TICKET_DETAIL = "/discountManage/one";
     /**
      * 优惠券详情
      */
-    public static String API_TICKET_DISCOUNT_DETAIL = "/api/discountTicket/one";
+    public static String API_TICKET_DISCOUNT_DETAIL = "/discountTicket/one";
 }
