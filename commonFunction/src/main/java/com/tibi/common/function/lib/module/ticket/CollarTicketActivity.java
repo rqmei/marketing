@@ -59,7 +59,7 @@ public class CollarTicketActivity extends BaseActivity<TicketPresenter> implemen
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        tvNavigationTitle.setText("领卷中心");
+        tvNavigationTitle.setText("领券中心");
     }
 
     @Override
