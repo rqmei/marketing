@@ -13,12 +13,11 @@ import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.tibi.common.function.lib.R;
 import com.tibi.common.function.lib.R2;
-import com.tibi.common.function.lib.base.activity.BaseActivity;
+import lib.android.timingbar.com.base.activity.BaseActivity;
 import com.tibi.common.function.lib.module.discount.Discount;
 import com.tibi.common.function.lib.module.discount.IMyDiscountView;
 import com.tibi.common.function.lib.module.discount.MyDiscountAdapter;
 import com.tibi.common.function.lib.module.discount.MyDiscountPresenter;
-import com.tibi.common.function.lib.module.ticket.Ticket;
 import com.tibi.common.function.lib.util.RefreshNoDataUtil;
 
 import java.util.ArrayList;

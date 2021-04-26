@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.tibi.common.function.lib.api.HttpApi;
 import com.tibi.common.function.lib.api.callback.TbCallBack;
-import com.tibi.common.function.lib.base.mvp.IPresenter;
+import lib.android.timingbar.com.base.mvp.IPresenter;
 import com.tibi.common.function.lib.module.discount.Discount;
 
 import io.reactivex.disposables.Disposable;

@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.tibi.common.function.lib.api.HttpApi;
 import com.tibi.common.function.lib.api.callback.TbCallBack;
-import com.tibi.common.function.lib.base.mvp.IPresenter;
+import lib.android.timingbar.com.base.mvp.IPresenter;
 
 import java.util.List;
 
