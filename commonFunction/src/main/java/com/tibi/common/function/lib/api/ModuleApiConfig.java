@@ -12,7 +12,7 @@ public class ModuleApiConfig {
     /**
      * 营销系统基础路径
      */
-    public static String MARKETING_HOSTSERVER = "http://192.168.18.147:8210/api";
+    public static String MARKETING_HOSTSERVER = "http://marketing-api.t1.tb.com/api";
     /**
      * 购券中心列表
      */

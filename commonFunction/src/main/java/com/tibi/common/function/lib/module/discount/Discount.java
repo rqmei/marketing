@@ -2425,13 +2425,13 @@ public class Discount {
      */
     public String getStateStr() {
         if (state == 0) {
-            return "已作废";
+            return "无效";
         } else if (state == 1) {
             return "未使用";
         } else if (state == 2) {
             return "已使用";
         } else if (state == 3) {
-            return "已过期";
+            return "过期";
         } else if (state == 4) {
             return "不可用";
         }

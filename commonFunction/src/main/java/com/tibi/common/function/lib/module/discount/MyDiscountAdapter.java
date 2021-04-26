@@ -7,6 +7,7 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.tibi.common.function.lib.R;
+import com.tibi.common.function.lib.util.StringUtils;
 import com.tibi.common.function.lib.util.UIModuleHelper;
 import com.tibi.common.function.lib.view.dialog.DialogManager;
 
@@ -40,6 +41,12 @@ public class MyDiscountAdapter extends BaseQuickAdapter<Discount, BaseViewHolder
         item.setText(R.id.tv_ticket_time, discount.getTicketUseTime());
         item.setText(R.id.tv_ticket_operation, "立即使用");
         item.setGone(R.id.iv_is_gain, false);
+        if(StringUtils.isEmpty(discount.getDiscountRuleDetailJoin())){
+            item.setGone(R.id.iv_state,false);
+        }else {
+            item.setGone(R.id.iv_state,true);
+            item.setText(R.id.stv_ticket_discount, discount.getDiscountRuleDetailJoin());
+        }
         if (type == 0) {
             item.setGone(R.id.tv_ticket_operation, true);
             item.setGone(R.id.view_line,true);
@@ -60,6 +67,7 @@ public class MyDiscountAdapter extends BaseQuickAdapter<Discount, BaseViewHolder
         } else if (state == 4) {
             item.setImageResource(R.id.iv_state, R.mipmap.not_available);
         }
+        item.setGone(R.id.iv_state,true);
         item.addOnClickListener(R.id.tv_ticket_operation, R.id.ll_ticket_item);
     }
 

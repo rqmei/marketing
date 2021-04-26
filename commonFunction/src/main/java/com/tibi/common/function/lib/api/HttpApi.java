@@ -55,7 +55,6 @@ public class HttpApi {
         params.put("productCode", ticketApplyParams.getProductCode());
         params.put("discountId", ticketApplyParams.getDiscountId());
         params.put("holdType", ticketApplyParams.getHoldType() + "");
-        Log.i("putTicketApply",new Gson().toJson(params));
         return EasyHttp.put(ModuleApiConfig.MARKETING_HOSTSERVER+ModuleApiConfig.API_TICKET_APPLY)
                 .upObject(params)
                 .addConverterFactory(GsonConverterFactory.create())

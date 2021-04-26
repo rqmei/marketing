@@ -34,6 +34,7 @@ public class TicketAdapter extends BaseQuickAdapter<Ticket, BaseViewHolder> impl
         item.setText(R.id.tv_ticket_type_name, ticket.getDiscountTypeName());
         item.setText(R.id.tv_ticket_name, ticket.getDiscountName());
         item.setText(R.id.tv_ticket_time, ticket.getTicketUseTime());
+        item.setText(R.id.stv_ticket_discount,ticket.getDiscountRuleDetailJoin());
         if (ticket.getIsGain() == 1) {
             item.setGone(R.id.iv_is_gain, true);
             item.setTextColor(R.id.tv_ticket_operation, ContextCompat.getColor(activity, R.color.G1));

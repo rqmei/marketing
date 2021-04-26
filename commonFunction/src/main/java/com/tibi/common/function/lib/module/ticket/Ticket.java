@@ -240,7 +240,15 @@ public class Ticket implements Serializable {
 
 
     public String getDiscountRuleDetailJoin() {
-        return "";
+        String str = "";
+        for (int i = 0; i < discountRuleDetailJoin.length; i++) {
+            if (i == 0) {
+                str = discountRuleDetailJoin[i];
+            } else {
+                str = str + "," + discountRuleDetailJoin[i];
+            }
+        }
+        return str;
     }
 
     public int getIsGain() {
@@ -258,13 +266,38 @@ public class Ticket implements Serializable {
      */
     public String getTicketUseTime() {
         String timeStr = "-";
-        if (!StringUtils.isEmpty(ticketStartTime)) {
-            timeStr = "限" + StringUtils.parse(ticketStartTime,"yyyy.MM.dd");
-            if (!StringUtils.isEmpty(ticketEndTime)) {
-                timeStr = timeStr + "至" + StringUtils.parse(ticketEndTime,"yyyy.MM.dd") + "使用";
+        if (isGain == 1 || ticketValidTimeType == 2) {
+            if (!StringUtils.isEmpty(ticketStartTime)) {
+                timeStr = "限" + StringUtils.parse(ticketStartTime, "yyyy.MM.dd");
+                if (!StringUtils.isEmpty(ticketEndTime)) {
+                    timeStr = timeStr + "至" + StringUtils.parse(ticketEndTime, "yyyy.MM.dd") + "使用";
+                }
+            }
+        } else {
+            if (ticketValidTimeType == 0) {
+                timeStr = "不限";
+            } else if (ticketValidTimeType == 1) {
+                timeStr = ticketValidCount + formatterTicketValidUnit();
             }
         }
         return timeStr;
+    }
+
+    /**
+     *
+     * @return year，month，day，hours
+     */
+    private String formatterTicketValidUnit() {
+        if (ticketValidUnit.equals("year")) {
+            return "年";
+        } else if (ticketValidUnit.equals("month")) {
+            return "个月";
+        } else if (ticketValidUnit.equals("day")) {
+            return "天";
+        } else if (ticketValidUnit.equals("hours")) {
+            return "小时";
+        }
+        return "";
     }
 
     public static class DiscountUseConditionRule implements Serializable {
@@ -278,33 +311,43 @@ public class Ticket implements Serializable {
         private String ticketTypeCode;// 券类型编码（参数）
         private String ticketTypeName;// 券类型名称
         private int totalAmount;//购买金额（分）
+
         public int getConditionType() {
             return conditionType;
         }
+
         public String getDescription() {
             return description;
         }
+
         public int getIsDelete() {
             return isDelete;
         }
+
         public String getPayEndTime() {
             return payEndTime;
         }
+
         public String getPayStartTime() {
             return payStartTime;
         }
+
         public int getTicketCount() {
             return ticketCount;
         }
+
         public String getTicketName() {
             return ticketName;
         }
+
         public String getTicketTypeCode() {
             return ticketTypeCode;
         }
+
         public String getTicketTypeName() {
             return ticketTypeName;
         }
+
         public int getTotalAmount() {
             return totalAmount;
         }
@@ -354,11 +397,11 @@ public class Ticket implements Serializable {
         if (discountUseConditionRule != null) {
             String payStartTime = discountUseConditionRule.getPayStartTime();
             if (!StringUtils.isEmpty(payStartTime)) {
-                payTime = StringUtils.parse(payStartTime,"yyyy.MM.dd");
+                payTime = StringUtils.parse(payStartTime, "yyyy.MM.dd");
             }
             String payEndTime = discountUseConditionRule.getPayEndTime();
             if (!StringUtils.isEmpty(payEndTime)) {
-                payTime = payTime + "至" + StringUtils.parse(payEndTime,"yyyy.MM.dd");
+                payTime = payTime + "至" + StringUtils.parse(payEndTime, "yyyy.MM.dd");
             }
         }
         return payTime;
@@ -385,6 +428,6 @@ public class Ticket implements Serializable {
         if (discountUseConditionRule != null) {
             totalAmount = discountUseConditionRule.getTotalAmount();
         }
-        return totalAmount == 0 ? "" : String.valueOf(totalAmount/100.00);
+        return totalAmount == 0 ? "" : String.valueOf(totalAmount / 100.00);
     }
 }

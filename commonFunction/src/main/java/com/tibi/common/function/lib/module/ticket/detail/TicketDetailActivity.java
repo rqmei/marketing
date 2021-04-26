@@ -57,7 +57,7 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
     TextView tvBuyAmount;
     @BindView(R2.id.tv_explain)
     TextView tvExplain;
-
+    TicketDetail ticketDetail;
     @Override
     public int getLayoutResId() {
         return R.layout.ticket_detail;
@@ -100,6 +100,7 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
 
     @Override
     public void getTicketDetailResult(TicketDetail ticket) {
+        this.ticketDetail = ticket;
         if (ticket != null) {
             if (isGain == 0) {
                 stvUse.setDefaultColor(ContextCompat.getColor(TicketDetailActivity.this, R.color.c1));
@@ -115,7 +116,7 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
 
             tvTicketTypeName.setText(ticket.getDiscountName());
             tvTicketState.setText(ticket.getStateStr());
-            tvUseTime.setText(ticket.getTicketUseTime());
+            tvUseTime.setText(ticket.getTicketUseTime(isGain));
             tvDiscount.setText("优惠规则：" + ticket.getDiscountRuleDetailJoin());
             tvScene.setText("使用场景：" + ticket.getUseConditionTypeName());
             tvExplain.setText("说明：" + ticket.getDescription());
@@ -189,6 +190,10 @@ public class TicketDetailActivity extends BaseActivity<TicketPresenter> implemen
 
     @Override
     public void ticketApplySuccess(int position) {
+        isGain = 1;
+        if(ticketDetail != null) {
+            tvUseTime.setText(ticketDetail.getTicketUseTime(isGain));
+        }
         stvUse.setDefaultColor(ContextCompat.getColor(TicketDetailActivity.this, R.color.G4));
         stvUse.setOnClickListener(null);
     }

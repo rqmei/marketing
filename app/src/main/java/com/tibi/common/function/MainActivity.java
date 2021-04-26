@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
         btnBug.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UIModuleHelper.toCollarTicket(MainActivity.this,"934543","prod_antubang");
+                UIModuleHelper.toCollarTicket(MainActivity.this,"938569","prod_antubang");
             }
         });
         btnDiscount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UIModuleHelper.toMyDiscount(MainActivity.this,"934543","prod_antubang");
+                UIModuleHelper.toMyDiscount(MainActivity.this,"938569","prod_antubang");
             }
         });
     }

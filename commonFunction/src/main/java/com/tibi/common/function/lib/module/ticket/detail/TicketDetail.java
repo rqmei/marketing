@@ -16,10 +16,13 @@ public class TicketDetail implements Serializable {
                 if (jsonObject.optBoolean("success")) {
                     JSONObject data = jsonObject.optJSONObject("data");
                     if (data != null) {
-                        this.discountName=data.optString("discountName");
+                        this.discountName = data.optString("discountName");
                         this.discountTypeName = data.optString("discountTypeName");
                         this.ticketStartTime = data.optString("ticketStartTime");
                         this.ticketEndTime = data.optString("ticketEndTime");
+                        this.ticketValidTimeType = data.optInt("ticketValidTimeType");
+                        this.ticketValidCount = data.optInt("ticketValidCount");
+                        this.ticketValidUnit = data.optString("ticketValidUnit");
                         this.state = data.optInt("state");
                         this.useConditionTypeName = data.optString("useConditionTypeName");
                         JSONArray jsonArray = data.optJSONArray("discountRuleDetailJoin");
@@ -49,7 +52,10 @@ public class TicketDetail implements Serializable {
     private String ticketStartTime; // 优惠券有效开始时间
     private String ticketEndTime; // 优惠券有效结束时间
     private int state; // 状态（0：无效，1:草稿，2：停用，3:启用，10：过期）
+    private int ticketValidTimeType; // 券有效期类型（0:不限制，1：获取后失效，1:周期有效）
     private String useConditionTypeName; // 使用场景名称（来自参数(购买学习券）
+    private int ticketValidCount; // 优惠券有效条件个数（比如，多少天）
+    private String ticketValidUnit; // 优惠券有效条件单位（年，月，天，时，year，month，day，hours）
     private String description;
     private DiscountUseConditionRule discountUseConditionRule;
     private String discountRuleDetailJoin; // 优惠详情优惠拼装
@@ -154,17 +160,41 @@ public class TicketDetail implements Serializable {
      *
      * @return
      */
-    public String getTicketUseTime() {
+    public String getTicketUseTime(int isGain) {
         String timeStr = "-";
-        if (!StringUtils.isEmpty(ticketStartTime)) {
-            timeStr = "限" + StringUtils.parse(ticketStartTime, "yyyy.MM.dd");
-            if (!StringUtils.isEmpty(ticketEndTime)) {
-                timeStr = timeStr + "至" + StringUtils.parse(ticketEndTime, "yyyy.MM.dd") + "使用";
+        if (isGain == 1 || ticketValidTimeType == 2) {
+            if (!StringUtils.isEmpty(ticketStartTime)) {
+                timeStr = "限" + StringUtils.parse(ticketStartTime, "yyyy.MM.dd");
+                if (!StringUtils.isEmpty(ticketEndTime)) {
+                    timeStr = timeStr + "至" + StringUtils.parse(ticketEndTime, "yyyy.MM.dd") + "使用";
+                }
+            }
+        } else {
+            if (ticketValidTimeType == 0) {
+                timeStr = "不限";
+            } else if (ticketValidTimeType == 1) {
+                timeStr = ticketValidCount + formatterTicketValidUnit();
             }
         }
         return timeStr;
     }
 
+    /**
+     *
+     * @return year，month，day，hours
+     */
+    private String formatterTicketValidUnit() {
+        if (ticketValidUnit.equals("year")) {
+            return "年";
+        } else if (ticketValidUnit.equals("month")) {
+            return "个月";
+        } else if (ticketValidUnit.equals("day")) {
+            return "天";
+        } else if (ticketValidUnit.equals("hours")) {
+            return "小时";
+        }
+        return "";
+    }
     /**
      * 状态（0：无效，1:草稿，2：停用，3:启用，10：过期）
      *
@@ -176,11 +206,11 @@ public class TicketDetail implements Serializable {
         } else if (state == 1) {
             return "草稿";
         } else if (state == 2) {
-            return "已停用";
+            return "停用";
         } else if (state == 3) {
-            return "未使用";
+            return "启用";
         } else if (state == 10) {
-            return "已过期";
+            return "过期";
         }
         return "-";
     }
