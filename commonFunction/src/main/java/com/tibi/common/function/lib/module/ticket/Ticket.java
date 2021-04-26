@@ -265,7 +265,7 @@ public class Ticket implements Serializable {
      * @return
      */
     public String getTicketUseTime() {
-        String timeStr = "-";
+        String timeStr = "";
         if (isGain == 1 || ticketValidTimeType == 2) {
             if (!StringUtils.isEmpty(ticketStartTime)) {
                 timeStr = "限" + StringUtils.parse(ticketStartTime, "yyyy.MM.dd");

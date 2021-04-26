@@ -60,6 +60,7 @@
                     android:layout_marginTop="@dimen/dp_4"
                     android:layout_marginBottom="@dimen/dp_4"
                     android:paddingBottom="@dimen/dp_4"
+                    android:maxLines="1"
                     android:text="满100减10"
                     android:textColor="#409EFF"
                     android:textSize="12sp"

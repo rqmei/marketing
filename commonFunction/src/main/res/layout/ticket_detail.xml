@@ -47,14 +47,16 @@
             android:orientation="vertical">
 
             <TextView
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:id="@+id/tv_ticket_type_name"
                 style="@style/ticket_detail_title"
-                android:text="-" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tv_ticket_state"
                 style="@style/ticket_detail_state"
-                android:text="-" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tv_use_time"

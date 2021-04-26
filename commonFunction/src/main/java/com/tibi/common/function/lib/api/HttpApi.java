@@ -2,9 +2,8 @@ package com.tibi.common.function.lib.api;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
-import com.google.gson.Gson;
+import com.tibi.common.function.lib.api.callback.TbCallBack;
 import com.tibi.common.function.lib.base.User;
 import com.tibi.common.function.lib.constant.SpConstant;
 import com.tibi.common.function.lib.module.discount.Discount;

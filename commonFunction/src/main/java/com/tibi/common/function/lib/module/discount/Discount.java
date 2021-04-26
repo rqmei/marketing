@@ -2408,7 +2408,7 @@ public class Discount {
      * @return
      */
     public String getTicketUseTime() {
-        String timeStr = "-";
+        String timeStr = "";
         if (!StringUtils.isEmpty(ticketStartTime)) {
             timeStr = "限" + StringUtils.parse(ticketStartTime, "yyyy.MM.dd");
             if (!StringUtils.isEmpty(ticketEndTime)) {
