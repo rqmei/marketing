@@ -265,19 +265,24 @@ public class Ticket implements Serializable {
      * @return
      */
     public String getTicketUseTime() {
-        String timeStr = "";
-        if (isGain == 1 || ticketValidTimeType == 2) {
+        String timeStr = "不限";
+        if (isGain == 1 || ticketValidTimeType == 2 || !discountTypeCode.equals("discount_ticket")) {
             if (!StringUtils.isEmpty(ticketStartTime)) {
                 timeStr = "限" + StringUtils.parse(ticketStartTime, "yyyy.MM.dd");
                 if (!StringUtils.isEmpty(ticketEndTime)) {
                     timeStr = timeStr + "至" + StringUtils.parse(ticketEndTime, "yyyy.MM.dd") + "使用";
+                }
+            }else if(!StringUtils.isEmpty(startTime)){
+                timeStr = "限" + StringUtils.parse(startTime, "yyyy.MM.dd");
+                if (!StringUtils.isEmpty(endTime)) {
+                    timeStr = timeStr + "至" + StringUtils.parse(endTime, "yyyy.MM.dd") + "使用";
                 }
             }
         } else {
             if (ticketValidTimeType == 0) {
                 timeStr = "不限";
             } else if (ticketValidTimeType == 1) {
-                timeStr = ticketValidCount + formatterTicketValidUnit();
+                timeStr = "领取后"+ticketValidCount + formatterTicketValidUnit()+"失效";
             }
         }
         return timeStr;

@@ -2408,7 +2408,7 @@ public class Discount {
      * @return
      */
     public String getTicketUseTime() {
-        String timeStr = "";
+        String timeStr = "不限";
         if (!StringUtils.isEmpty(ticketStartTime)) {
             timeStr = "限" + StringUtils.parse(ticketStartTime, "yyyy.MM.dd");
             if (!StringUtils.isEmpty(ticketEndTime)) {
@@ -2539,6 +2539,6 @@ public class Discount {
         if (discountManageDto != null && discountManageDto.discountUseConditionRule != null) {
             totalAmount = discountManageDto.discountUseConditionRule.getTotalAmount();
         }
-        return totalAmount == 0 ? "" : String.valueOf(totalAmount/100.00);
+        return totalAmount == 0 ? "" : String.valueOf(totalAmount/100.00)+"元";
     }
 }

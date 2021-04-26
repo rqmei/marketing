@@ -23,6 +23,9 @@ public class TicketDetail implements Serializable {
                         this.ticketValidTimeType = data.optInt("ticketValidTimeType");
                         this.ticketValidCount = data.optInt("ticketValidCount");
                         this.ticketValidUnit = data.optString("ticketValidUnit");
+                        this.startTime = data.optString("startTime");
+                        this.endTime = data.optString("endTime");
+                        this.discountTypeCode = data.optString("discountTypeCode");
                         this.state = data.optInt("state");
                         this.useConditionTypeName = data.optString("useConditionTypeName");
                         JSONArray jsonArray = data.optJSONArray("discountRuleDetailJoin");
@@ -46,7 +49,7 @@ public class TicketDetail implements Serializable {
 
         }
     }
-
+    private String discountTypeCode;
     private String discountName;
     private String discountTypeName;
     private String ticketStartTime; // 优惠券有效开始时间
@@ -58,6 +61,8 @@ public class TicketDetail implements Serializable {
     private String ticketValidUnit; // 优惠券有效条件单位（年，月，天，时，year，month，day，hours）
     private String description;
     private DiscountUseConditionRule discountUseConditionRule;
+    private String startTime; // 有效开始时间
+    private String endTime; // 有效结束时间
     private String discountRuleDetailJoin; // 优惠详情优惠拼装
 
     public String getDiscountName() {
@@ -161,19 +166,24 @@ public class TicketDetail implements Serializable {
      * @return
      */
     public String getTicketUseTime(int isGain) {
-        String timeStr = "";
-        if (isGain == 1 || ticketValidTimeType == 2) {
+        String timeStr = "不限";
+        if (isGain == 1 || ticketValidTimeType == 2 || !discountTypeCode.equals("discount_ticket")) {
             if (!StringUtils.isEmpty(ticketStartTime)) {
                 timeStr = "限" + StringUtils.parse(ticketStartTime, "yyyy.MM.dd");
                 if (!StringUtils.isEmpty(ticketEndTime)) {
                     timeStr = timeStr + "至" + StringUtils.parse(ticketEndTime, "yyyy.MM.dd") + "使用";
+                }
+            } else if(!StringUtils.isEmpty(startTime)){
+                timeStr = "限" + StringUtils.parse(startTime, "yyyy.MM.dd");
+                if (!StringUtils.isEmpty(endTime)) {
+                    timeStr = timeStr + "至" + StringUtils.parse(endTime, "yyyy.MM.dd") + "使用";
                 }
             }
         } else {
             if (ticketValidTimeType == 0) {
                 timeStr = "不限";
             } else if (ticketValidTimeType == 1) {
-                timeStr = ticketValidCount + formatterTicketValidUnit();
+                timeStr = "领取后"+ticketValidCount + formatterTicketValidUnit()+"失效";
             }
         }
         return timeStr;
@@ -290,6 +300,6 @@ public class TicketDetail implements Serializable {
         if (discountUseConditionRule != null) {
             totalAmount = discountUseConditionRule.getTotalAmount();
         }
-        return totalAmount == 0 ? "" : String.valueOf(totalAmount / 100.00);
+        return totalAmount == 0 ? "" : String.valueOf(totalAmount / 100.00)+"元";
     }
 }
