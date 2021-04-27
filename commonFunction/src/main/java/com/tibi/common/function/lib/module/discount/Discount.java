@@ -1,8 +1,9 @@
 package com.tibi.common.function.lib.module.discount;
 
-import com.tibi.common.function.lib.util.StringUtils;
 
 import java.util.List;
+
+import lib.android.timingbar.com.util.StringUtils;
 
 public class Discount {
 

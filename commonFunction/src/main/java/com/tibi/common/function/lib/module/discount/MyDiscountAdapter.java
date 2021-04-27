@@ -7,13 +7,13 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.tibi.common.function.lib.R;
-import com.tibi.common.function.lib.util.StringUtils;
 import com.tibi.common.function.lib.util.UIModuleHelper;
 import com.tibi.common.function.lib.view.dialog.DialogManager;
 
 import java.util.List;
 
 import androidx.fragment.app.FragmentManager;
+import lib.android.timingbar.com.util.StringUtils;
 
 public class MyDiscountAdapter extends BaseQuickAdapter<Discount, BaseViewHolder> implements BaseQuickAdapter.OnItemChildClickListener {
     IMyDiscountView iMyDiscountView;

@@ -10,11 +10,11 @@ import com.tibi.common.function.lib.R2;
 import lib.android.timingbar.com.base.activity.BaseActivity;
 import lib.android.timingbar.com.base.status.StateUtils;
 import com.tibi.common.function.lib.module.discount.Discount;
-import com.tibi.common.function.lib.util.StringUtils;
 import com.tibi.common.function.lib.view.dialog.DialogManager;
 
 import androidx.core.content.ContextCompat;
 import butterknife.BindView;
+import lib.android.timingbar.com.util.StringUtils;
 import lib.android.timingbar.com.view.ShapeTextView;
 
 /**

@@ -13,12 +13,12 @@ import lib.android.timingbar.com.base.status.StateUtils;
 import com.tibi.common.function.lib.constant.SpConstant;
 import com.tibi.common.function.lib.module.ticket.TicketApplyParams;
 import com.tibi.common.function.lib.module.ticket.TicketPresenter;
-import com.tibi.common.function.lib.util.Sputil;
-import com.tibi.common.function.lib.util.StringUtils;
 
 
 import androidx.core.content.ContextCompat;
 import butterknife.BindView;
+import lib.android.timingbar.com.util.Sputil;
+import lib.android.timingbar.com.util.StringUtils;
 import lib.android.timingbar.com.view.ShapeTextView;
 
 /**

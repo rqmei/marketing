@@ -17,7 +17,6 @@ import com.tibi.common.function.lib.base.User;
 import lib.android.timingbar.com.base.activity.BaseActivity;
 import com.tibi.common.function.lib.constant.SpConstant;
 import com.tibi.common.function.lib.util.RefreshNoDataUtil;
-import com.tibi.common.function.lib.util.Sputil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +24,7 @@ import java.util.List;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
+import lib.android.timingbar.com.util.Sputil;
 
 /**
  * 领卷中心

@@ -1,12 +1,13 @@
 package com.tibi.common.function.lib.module.ticket.detail;
 
-import com.tibi.common.function.lib.util.StringUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+
+import lib.android.timingbar.com.util.StringUtils;
 
 public class TicketDetail implements Serializable {
     public TicketDetail(String str) {

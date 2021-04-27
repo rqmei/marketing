@@ -31,14 +31,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation rootProject.ext.dependencies["androidx-v4"]
-    implementation rootProject.ext.dependencies["androidx-appcompat-v7"]
-    implementation(rootProject.ext.dependencies["butterknife"])
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
-    implementation rootProject.ext.dependencies['smartRefreshLayout']
-    implementation rootProject.ext.dependencies['smartRefreshHeader']
-    //没有使用特殊Header，可以不加这行
-    implementation rootProject.ext.dependencies['baseRecyclerViewAdapterHelper']
     implementation 'lib.android.tibi.com:http:1.0.1'
-    implementation 'com.github.rqmei:java-tb-view-android:1.0.1'
+    implementation 'com.github.rqmei:java-tb-view-android:1.0.4'
 }
