@@ -7,7 +7,8 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 
-import lib.android.timingbar.com.util.StringUtils;
+import lib.android.tb.common.util.StringUtils;
+
 
 public class TicketDetail implements Serializable {
     public TicketDetail(String str) {

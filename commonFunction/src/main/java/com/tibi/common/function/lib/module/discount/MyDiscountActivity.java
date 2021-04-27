@@ -14,7 +14,6 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.tibi.common.function.lib.R;
 import com.tibi.common.function.lib.R2;
 import com.tibi.common.function.lib.base.User;
-import lib.android.timingbar.com.base.activity.BaseActivity;
 import com.tibi.common.function.lib.constant.SpConstant;
 import com.tibi.common.function.lib.util.RefreshNoDataUtil;
 import com.tibi.common.function.lib.util.UIModuleHelper;
@@ -25,7 +24,8 @@ import java.util.List;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
-import lib.android.timingbar.com.util.Sputil;
+import lib.android.tb.common.base.activity.BaseActivity;
+import lib.android.tb.common.util.Sputil;
 
 /**
  * 我的优惠

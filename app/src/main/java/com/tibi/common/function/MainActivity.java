@@ -9,7 +9,6 @@ import com.tibi.common.function.lib.util.UIModuleHelper;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
     @butterknife.BindView(R.id.btn_bug)
     Button btnBug;
     @butterknife.BindView(R.id.btn_discount)

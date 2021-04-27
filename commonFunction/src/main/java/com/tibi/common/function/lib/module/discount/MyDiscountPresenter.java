@@ -5,11 +5,11 @@ import android.util.Log;
 
 import com.tibi.common.function.lib.api.HttpApi;
 import com.tibi.common.function.lib.api.callback.TbCallBack;
-import lib.android.timingbar.com.base.mvp.IPresenter;
 
 import java.util.List;
 
 import io.reactivex.disposables.Disposable;
+import lib.android.tb.common.base.mvp.IPresenter;
 import lib.android.timingbar.com.http.exception.ApiException;
 
 public class MyDiscountPresenter implements IPresenter {

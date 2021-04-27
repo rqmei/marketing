@@ -4,10 +4,10 @@ import android.content.Context;
 
 import com.tibi.common.function.lib.api.HttpApi;
 import com.tibi.common.function.lib.api.callback.TbCallBack;
-import lib.android.timingbar.com.base.mvp.IPresenter;
 import com.tibi.common.function.lib.module.discount.Discount;
 
 import io.reactivex.disposables.Disposable;
+import lib.android.tb.common.base.mvp.IPresenter;
 import lib.android.timingbar.com.http.exception.ApiException;
 
 public class DiscountDetailPresenter implements IPresenter {

@@ -8,7 +8,7 @@ import android.view.View;
 import com.tibi.common.function.lib.R;
 
 import androidx.fragment.app.FragmentManager;
-import lib.android.timingbar.com.view.CustomDialog;
+import lib.android.tb.common.view.CustomDialog;
 
 /**
  * DialogManager

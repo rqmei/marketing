@@ -4,7 +4,7 @@
     <application>
         <!-- glide配置 -->
         <meta-data
-            android:name="lib.android.timingbar.com.imageloader.glide.GlideConfiguration"
+            android:name="lib.android.tb.common.imageloader.glide.GlideConfiguration"
             android:value="GlideModule" />
         <!--领卷中心-详情-->
         <activity

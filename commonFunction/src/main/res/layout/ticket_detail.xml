@@ -63,7 +63,7 @@
                 style="@style/ticket_detail_state"
                 android:text="-" />
 
-            <lib.android.timingbar.com.view.ShapeTextView
+            <lib.android.tb.common.view.ShapeTextView
                 android:id="@+id/stv_use"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"

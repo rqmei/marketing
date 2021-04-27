@@ -7,15 +7,16 @@ import android.widget.TextView;
 
 import com.tibi.common.function.lib.R;
 import com.tibi.common.function.lib.R2;
-import lib.android.timingbar.com.base.activity.BaseActivity;
-import lib.android.timingbar.com.base.status.StateUtils;
+
+import lib.android.tb.common.base.activity.BaseActivity;
+import lib.android.tb.common.base.status.StateUtils;
 import com.tibi.common.function.lib.module.discount.Discount;
 import com.tibi.common.function.lib.view.dialog.DialogManager;
 
 import androidx.core.content.ContextCompat;
 import butterknife.BindView;
-import lib.android.timingbar.com.util.StringUtils;
-import lib.android.timingbar.com.view.ShapeTextView;
+import lib.android.tb.common.util.StringUtils;
+import lib.android.tb.common.view.ShapeTextView;
 
 /**
  * 领卷中心-详情

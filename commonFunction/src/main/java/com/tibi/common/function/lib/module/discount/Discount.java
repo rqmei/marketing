@@ -3,7 +3,8 @@ package com.tibi.common.function.lib.module.discount;
 
 import java.util.List;
 
-import lib.android.timingbar.com.util.StringUtils;
+import lib.android.tb.common.util.StringUtils;
+
 
 public class Discount {
 

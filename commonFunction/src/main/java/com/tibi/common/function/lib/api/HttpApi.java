@@ -14,9 +14,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.disposables.Disposable;
+import lib.android.tb.common.util.Sputil;
 import lib.android.timingbar.com.http.EasyHttp;
 import lib.android.timingbar.com.http.module.HttpParams;
-import lib.android.timingbar.com.util.Sputil;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HttpApi {

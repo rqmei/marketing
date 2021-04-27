@@ -28,7 +28,7 @@
             android:textSize="@dimen/h5" />
     </ScrollView>
 
-    <lib.android.timingbar.com.view.ShapeTextView
+    <lib.android.tb.common.view.ShapeTextView
         android:id="@+id/stv_ok"
         android:layout_width="@dimen/dp_100"
         android:layout_height="@dimen/dp_32"

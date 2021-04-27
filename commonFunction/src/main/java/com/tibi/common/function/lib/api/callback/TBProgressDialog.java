@@ -10,10 +10,10 @@ import android.widget.ImageView;
 
 import com.tibi.common.function.lib.R;
 
+import lib.android.tb.common.imageloader.ImageLoader;
+import lib.android.tb.common.imageloader.glide.GlideImageConfig;
+import lib.android.tb.common.util.DataHelper;
 import lib.android.timingbar.com.http.subsciber.IProgressDialog;
-import lib.android.timingbar.com.imageloader.ImageLoader;
-import lib.android.timingbar.com.imageloader.glide.GlideImageConfig;
-import lib.android.timingbar.com.util.DataHelper;
 
 /**
  * TBProgressDialog
