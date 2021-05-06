@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         btnDiscount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UIModuleHelper.toMyDiscount(MainActivity.this,"938292","prod_antubang");
+                UIModuleHelper.toMyDiscount(MainActivity.this,"938213","prod_antubang");
             }
         });
     }

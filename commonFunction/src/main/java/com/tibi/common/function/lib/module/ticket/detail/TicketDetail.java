@@ -35,7 +35,7 @@ public class TicketDetail implements Serializable {
                             if (i == 0) {
                                 this.discountRuleDetailJoin = jsonArray.getString(i);
                             } else {
-                                this.discountRuleDetailJoin = this.discountRuleDetailJoin + "," + jsonArray.getString(i);
+                                this.discountRuleDetailJoin = this.discountRuleDetailJoin + jsonArray.getString(i);
                             }
                         }
                         this.description = data.optString("description");

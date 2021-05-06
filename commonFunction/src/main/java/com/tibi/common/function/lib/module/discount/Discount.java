@@ -419,7 +419,11 @@ public class Discount {
     }
 
     public String getDescription() {
-        return StringUtils.isEmpty(description) ? "-" :description;
+        String str = "";
+        if(discountManageDto != null) {
+            str = discountManageDto.getDescription();
+        }
+        return StringUtils.isEmpty(str) ? "-" :str;
     }
 
     public void setDescription(String description) {
@@ -2446,7 +2450,8 @@ public class Discount {
     public String getDiscountRuleDetailJoin() {
         String str = "-";
         if (discountManageDto != null) {
-            str = discountManageDto.getDiscountRuleDetailJoin().toString();
+            str = discountManageDto.getDiscountRuleDetailJoin().toString()
+                    .replace("[","").replace("]","").replaceAll(",","");
         }
         return str;
     }

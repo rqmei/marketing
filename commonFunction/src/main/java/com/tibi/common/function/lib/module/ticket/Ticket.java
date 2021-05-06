@@ -247,7 +247,7 @@ public class Ticket implements Serializable {
             if (i == 0) {
                 str = discountRuleDetailJoin[i];
             } else {
-                str = str + "," + discountRuleDetailJoin[i];
+                str = str + discountRuleDetailJoin[i];
             }
         }
         return str;
@@ -274,7 +274,7 @@ public class Ticket implements Serializable {
                 if (!StringUtils.isEmpty(ticketEndTime)) {
                     timeStr = timeStr + "至" + StringUtils.parse(ticketEndTime, "yyyy.MM.dd") + "使用";
                 }
-            }else if(!StringUtils.isEmpty(startTime)){
+            } else if (!StringUtils.isEmpty(startTime)) {
                 timeStr = "限" + StringUtils.parse(startTime, "yyyy.MM.dd");
                 if (!StringUtils.isEmpty(endTime)) {
                     timeStr = timeStr + "至" + StringUtils.parse(endTime, "yyyy.MM.dd") + "使用";
@@ -284,14 +284,13 @@ public class Ticket implements Serializable {
             if (ticketValidTimeType == 0) {
                 timeStr = "不限";
             } else if (ticketValidTimeType == 1) {
-                timeStr = "领取后"+ticketValidCount + formatterTicketValidUnit()+"失效";
+                timeStr = "领取后" + ticketValidCount + formatterTicketValidUnit() + "失效";
             }
         }
         return timeStr;
     }
 
     /**
-     *
      * @return year，month，day，hours
      */
     private String formatterTicketValidUnit() {
