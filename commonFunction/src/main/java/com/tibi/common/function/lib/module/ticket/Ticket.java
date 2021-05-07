@@ -262,7 +262,7 @@ public class Ticket implements Serializable {
     }
 
     /**
-     * 使用时间
+     * 卷使用时间
      *
      * @return
      */
