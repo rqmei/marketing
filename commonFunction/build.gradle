@@ -30,8 +30,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation  fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     implementation 'lib.android.tibi.com:http:1.0.1'
-    implementation 'com.github.rqmei:java-tb-view-android:1.0.6'
+    implementation 'lib.android.tb.common.base:common-base:1.0.0'
 }
+apply from: '../maven-private.gradle'

@@ -22,6 +22,7 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+        maven { url "http://maven.tb.com/repository/tibi_repo/" }
         maven { url 'https://dl.bintray.com/tibi/maven' }
         maven {
             url "https://jitpack.io"
